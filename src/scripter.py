@@ -25,9 +25,10 @@ class Scripter:
         raise NotImplementedError
         
 
-    def __init__(self, ini_file, dest):
+    def __init__(self, ini_file, dest, runtime_config):
         self.config = parse_config(ini_file)
         self.dest = dest
+        self.runtime_config = runtime_config
 
     def create_dict(self, template, config, section):
         """Create a dictionary where keys are words between rafters and
@@ -108,7 +109,7 @@ class Scripter:
                 print(line.replace(old, new), end='')
 
     def run(self, log):
-        """Generates the """ + self.name + """ script for the switch according to a
+        """Generates the """ + self.runtime_config['name'] + """ script for the switch according to a
         config file.
 
         """
@@ -130,8 +131,8 @@ class Scripter:
 
         """
         tmp = []
-        for conf_key in set(self.possible_configs).intersection(config):
-            tmp.append(self.templates_path + conf_key)
+        for conf_key in set(self.runtime_config['possible_configs']).intersection(config):
+            tmp.append(self.runtime_config['templates_path'] + conf_key)
         
         if 'password' in config:
             tmp.append('src/templates/common/password')

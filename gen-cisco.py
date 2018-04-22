@@ -7,6 +7,7 @@ from pathlib import Path
 
 from src.scripters.switch import *
 from src.scripters.router import *
+from src.scripter import *
 
 @click.command()
 @click.option('--src', '-i', type=click.File('r'), help='The INI file.')
@@ -39,9 +40,9 @@ def cli(ctx, src, dest, override, log):
             sys.exit(1)
 
         if 'router' in src.name:
-            Router(src.name, dest).run(log)
+            Scripter(src.name, dest, Router).run(log)
         elif 'switch' in src.name:
-            Switch(src.name, dest).run(log)
+            Scripter(src.name, dest, Switch).run(log)
         else:
             print("Error: Invalid INI file ({})".format(src.name))
             sys.exit(1)
