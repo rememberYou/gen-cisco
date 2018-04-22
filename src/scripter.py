@@ -10,20 +10,7 @@ class Scripter:
         config (dict): Switch configuration.
         dest (str): Name of the file where to save the script.
 
-    """
-
-    @property
-    def name(self):
-        raise NotImplementedError
-
-    @property
-    def possible_configs(self):
-        raise NotImplementedError
-
-    @property
-    def templates_path(self):
-        raise NotImplementedError
-        
+    """ 
 
     def __init__(self, ini_file, dest, runtime_config):
         self.config = parse_config(ini_file)
