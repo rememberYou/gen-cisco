@@ -130,9 +130,8 @@ class Scripter:
 
         """
         tmp = []
-        for conf_key in self.possible_configs:
-            if conf_key in config:
-                tmp.append(self.templates_path + conf_key)
+        for conf_key in set(self.possible_configs).intersection(config):
+            tmp.append(self.templates_path + conf_key)
         
         if 'password' in config:
             tmp.append('src/templates/common/password')
