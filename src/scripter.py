@@ -96,7 +96,7 @@ class Scripter:
                 print(line.replace(old, new), end='')
 
     def run(self, log):
-        """Generates the """ + self.runtime_config['name'] + """ script for the switch according to a
+        """Generates the scripts for the device according to a
         config file.
 
         """
@@ -108,10 +108,10 @@ class Scripter:
 
     def get_templates(self, config):
         """Gets the templates that need to be used according dictionary
-        with the router config.
+        with the config.
 
         Args:
-            dict: The dictionary with the router config.
+            dict: The dictionary with the device config.
 
         Returns:
             list: The list of templates to be used.
