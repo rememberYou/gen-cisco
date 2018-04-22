@@ -12,6 +12,19 @@ class Scripter:
 
     """
 
+    @property
+    def name(self):
+        raise NotImplementedError
+
+    @property
+    def possible_configs(self):
+        raise NotImplementedError
+
+    @property
+    def templates_path(self):
+        raise NotImplementedError
+        
+
     def __init__(self, ini_file, dest):
         self.config = parse_config(ini_file)
         self.dest = dest
@@ -93,3 +106,35 @@ class Scripter:
         with FileInput(filename, inplace=True) as file:
             for line in file:
                 print(line.replace(old, new), end='')
+
+    def run(self, log):
+        """Generates the """ + self.name + """ script for the switch according to a
+        config file.
+
+        """
+        templates = self.get_templates(self.config)
+        self.create_file(self.dest, templates, log)
+        for template in templates:
+            dict_config = self.create_dict(template, self.config, template.split('/')[-1])
+            self.replace_all(self.dest, dict_config)
+
+    def get_templates(self, config):
+        """Gets the templates that need to be used according dictionary
+        with the router config.
+
+        Args:
+            dict: The dictionary with the router config.
+
+        Returns:
+            list: The list of templates to be used.
+
+        """
+        tmp = []
+        for conf_key in self.possible_configs:
+            if conf_key in config:
+                tmp.append(self.templates_path + conf_key)
+        
+        if 'password' in config:
+            tmp.append('src/templates/common/password')
+        tmp.append('src/templates/common/saving')
+        return tmp
