@@ -1,17 +1,16 @@
-![Cisco Logo](assets/cisco.png "Cisco logo") gen-cisco
-===============================
+# ![Cisco Logo](assets/cisco.png "Cisco logo") gen-cisco
 
 `gen-cisco` is an API and CLI to facilitate the creation of your Cisco scripts
-using an INI file.  This file groups a section for each protocol including the
+using an INI file. This file groups a section for each protocol including the
 values to be replaced in the appropriate Cisco template.
 
-The creation of these templates has been done during the various *CCNA* training
+The creation of these templates has been done during the various _CCNA_ training
 courses offered by Cisco, using [Packet
 Tracer](https://www.netacad.com/courses/packet-tracer-download/), a network
 simulation and visualization tool. Therefore, some commands may need to be
 modified on real hardware.
 
---------------------
+---
 
 ### Installation
 
@@ -21,7 +20,7 @@ It's as simple as that:
 pip install gen-cisco
 ```
 
---------------------
+---
 
 ### Usage
 
@@ -44,7 +43,17 @@ Options:
   --help              Show this message and exit.
 ```
 
---------------------
+Alternatively you can run this tool using Docker:
+
+```bash
+# Build the image
+docker build -t gen-cisco .
+
+# Run the image
+docker run -v $(pwd):/app gen-cisco python gen-cisco.py [OPTIONS]
+```
+
+---
 
 ### Supported Features
 
@@ -59,7 +68,7 @@ Here is a list of features configurable by the scripts:
 
 For a complete list sorted by device, please visit the [wiki](https://github.com/rememberYou/gen-cisco/wiki/Supported-Features).
 
---------------------
+---
 
 ### Contributions
 
@@ -68,7 +77,7 @@ do that, first take a look at the [CONTRIBUTING](https://github.com/rememberYou/
 file. Also, feel free to submit your bugs and suggestions by opening an issue in
 the issue tracker, it would help us a lot.
 
---------------------
+---
 
 ### License
 
