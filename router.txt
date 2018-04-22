@@ -1,0 +1,67 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!! BASIC ROUTER CONFIGURATION !!!!!!!!!!!!!!!!!!!!
+!
+! Turn on privileged commands
+enable
+!
+! Enter configuration mode
+configure terminal
+!
+! Set system's network name
+hostname R1
+!
+! Disable IP Domain Name System hostname translation
+no ip domain-lookup
+!
+! Encrypt system passwords
+service password-encryption
+!
+! Set Message of the Day banner
+banner motd # The router is for authorized personnel only. #
+!
+! Exit from configure mode
+exit
+!
+! Exit from enable mode
+exit
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!! PASSWORDS CONFIGURATION !!!!!!!!!!!!!!!!!!!!
+!
+! Turn on privileged commands
+enable
+!
+! Enter configuration mode
+configure terminal
+!
+! Assign the privileged level secret
+enable secret cisco
+!
+! Configure a primary terminal line
+!
+line console 0
+password cisco
+exec-timeout 2 30
+login
+logging synchronous
+exit
+!
+! Configure virtual terminals
+!
+line vty 0 4
+password cisco
+exec-timeout 2 30
+login
+logging synchronous
+exit
+!
+! Exit from configure mode
+exit
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! SAVING !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!
+! Copy from current system configuration to startup configuration
+copy running-config startup-config
+yes
+!
+! Exit from configure mode
+exit
+!

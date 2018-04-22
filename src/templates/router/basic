@@ -1,0 +1,26 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!! BASIC ROUTER CONFIGURATION !!!!!!!!!!!!!!!!!!!!
+!
+! Turn on privileged commands
+enable
+!
+! Enter configuration mode
+configure terminal
+!
+! Set system's network name
+hostname <HOSTNAME>
+!
+! Disable IP Domain Name System hostname translation
+no ip domain-lookup
+!
+! Encrypt system passwords
+service password-encryption
+!
+! Set Message of the Day banner
+banner motd # <BANNER> #
+!
+! Exit from configure mode
+exit
+!
+! Exit from enable mode
+exit
+!

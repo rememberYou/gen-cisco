@@ -1,0 +1,40 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! SSH CONFIGURATION !!!!!!!!!!!!!!!!!!!!!!!!!
+!
+! Turn on privileged commands
+enable
+!
+! Enter configuration mode
+configure terminal
+!
+! Define the default domain name
+ip domain-name <DOMAIN>
+!
+! Establish User Name Authentication
+username <USERNAME> privilege 15 secret <PASSWORD>
+!
+! Configure virtual terminals
+line vty 0 <VTY>
+transport input ssh
+login local
+exit
+!
+! Encryption module
+crypto key generate rsa
+2048
+!
+! Specify SSH version
+!
+ip ssh version <VERSION>
+!
+! Specify SSH time-out interval
+ip ssh time-out <TIMEOUT>
+!
+! Specify number of authentication retries
+ip ssh authentication-retries <AUTH_RETRIES>
+!
+! Exit from configure mode
+exit
+!
+! Exit from enable mode
+exit
+!

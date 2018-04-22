@@ -1,0 +1,40 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! OSPF CONFIGURATION !!!!!!!!!!!!!!!!!!!!!!!!!
+!
+! Turn on privileged commands
+enable
+!
+! Enter configuration mode
+configure terminal
+!
+! Enable a routing process
+router ospf <PROCESS>
+!
+! router-id for this OSPF process
+router-id <ROUTER_ID>
+!
+! Calculate OSPF interface cost according to bandwidth
+! Check out that every routers has the same reference bandwidth
+auto-cost reference-bandwidth <COST>
+!
+! OSPF area parameters
+area <AREA> authentication message-digest
+!
+! Suppress routing updates on an interface
+passive-interface <PASSIVE_INTERFACE>
+!
+! Enable routing on an IP network
+network <IP> <WILD_CARD> area <AREA>
+!
+! Exit from routing protocol configuration mode
+exit
+!
+! Exit from configure mode
+exit
+!
+! Reset OSPF process
+clear ip ospf process
+yes
+!
+! Exit from enable mode
+exit
+!

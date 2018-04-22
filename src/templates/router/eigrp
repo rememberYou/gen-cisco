@@ -1,0 +1,23 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! EIGRP CONFIGURATION !!!!!!!!!!!!!!!!!!!!!!!!!
+!
+! Turn on privileged commands
+enable
+!
+! Enter configuration mode
+configure terminal
+!
+! Enable a routing process
+router eigrp <PROCESS>
+!
+! Suppress routing updates on an interface
+passive-interface <PASSIVE_INTERFACE>
+!
+! Enable routing on an IP network
+network <IP> <WILD_CARD>
+!
+! Exit from configure mode
+exit
+!
+! Exit from enable mode
+exit
+!
