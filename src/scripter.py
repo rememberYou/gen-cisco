@@ -40,7 +40,7 @@ class Scripter:
             dict_config[rafter] = config[section][value[1:-1].lower()]
         return dict_config
 
-    def create_file(self, filename, templates):
+    def create_file(self, filename, templates, log):
         """ Creates the file containing all the necessary Cisco
         templates.
 
@@ -52,7 +52,10 @@ class Scripter:
         with open(filename, "w") as dest_file:
             for template in templates:
                 with open(template, 'r') as template_file:
-                    dest_file.write(template_file.read())
+                    temp_value = template_file.read()
+                    if log:
+                        print(temp_value)
+                    dest_file.write(temp_value)
 
     def get_rafters(self, filename):
         """Gets words from a file between rafters.

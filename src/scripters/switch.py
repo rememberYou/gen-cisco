@@ -27,13 +27,13 @@ class Switch(Scripter):
         tmp.append('src/templates/common/saving')
         return tmp
 
-    def run(self):
+    def run(self, log):
         """Generates the Cisco script for the switch according to a
         config file.
 
         """
         templates = self.get_templates(self.config)
-        self.create_file(self.dest, templates)
+        self.create_file(self.dest, templates, log)
         for template in templates:
             dict_config = self.create_dict(template, self.config, template.split('/')[-1])
             self.replace_all(self.dest, dict_config)
