@@ -88,11 +88,13 @@ class Scripter:
         """
         tmp = []
         for key in config:
-            if key != 'password':
+            if key != 'password' and key != 'ssh':
                 tmp.append(path + key)
 
         if 'password' in config:
             tmp.append('src/templates/common/password')
+        if key == 'ssh':
+            tmp.append('src/templates/common/ssh')
         tmp.append('src/templates/common/saving')
         return tmp
 

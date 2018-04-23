@@ -20,7 +20,7 @@ exit
 !
 ! Encryption module
 crypto key generate rsa
-2048
+<KEY_SIZE>
 !
 ! Specify SSH version
 !
