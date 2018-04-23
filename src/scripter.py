@@ -49,6 +49,8 @@ class Scripter:
         Args:
             filename (str): The absolute path to the file to be created.
             templates (list): The list of Cisco templates.
+            log (bool, optional): Outputs or not the script to the
+            console (default: False).
 
         """
         with open(filename, "w") as dest_file:
@@ -110,6 +112,7 @@ class Scripter:
         """Replaces all occurrences of an old word with a new one.
 
         Args:
+            filename (str): The filename.
             old (str): The old word.
             new (str): The new word.
 
@@ -118,9 +121,13 @@ class Scripter:
             for line in file:
                 print(line.replace(old, new), end='')
 
-    def run(self, log):
+    def run(self, log=False):
         """Generates the scripts for the device according to a
         config file.
+
+        Args:
+           log (bool, optional): Outputs or not the script to the
+           console (default: False).
 
         """
         templates = self.get_templates(self.tpath, self.config)
