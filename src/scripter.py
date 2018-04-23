@@ -42,7 +42,7 @@ class Scripter:
             dict_config[rafter] = config[section][value[1:-1].lower()]
         return dict_config
 
-    def create_file(self, filename, templates, log):
+    def create_file(self, filename, templates, log=False):
         """ Creates the file containing all the necessary Cisco
         templates.
 
