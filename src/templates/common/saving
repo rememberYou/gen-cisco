@@ -2,8 +2,7 @@
 !
 ! Copy from current system configuration to startup configuration
 copy running-config startup-config
-yes
-!
+
 ! Exit from configure mode
 exit
 !
