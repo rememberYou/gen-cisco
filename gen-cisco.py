@@ -21,6 +21,7 @@ def cli(ctx, src, dest, override, log):
     Examples:
       python gen-cisco.py -i examples/router.ini
       python gen-cisco.py -i examples/router.ini -o r1.txt
+      python gen-cisco.py -i examples/router.ini -o r1.txt -l
       python gen-cisco.py -i examples/router.ini -o r1.txt --override
 
     """
