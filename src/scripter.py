@@ -11,7 +11,7 @@ class Scripter:
         dest (str): The name of the file where to save the script.
         tpath (str): The path of the templates files for a device.
 
-    """ 
+    """
 
     def __init__(self, ini_file, dest, tpath):
         self.config = parse_config(ini_file)
@@ -42,7 +42,7 @@ class Scripter:
             dict_config[rafter] = config[section][value[1:-1].lower()]
         return dict_config
 
-    def create_file(self, filename, templates, log=False):
+    def create_file(self, filename, templates):
         """ Creates the file containing all the necessary Cisco
         templates.
 
@@ -56,10 +56,7 @@ class Scripter:
         with open(filename, "w") as dest_file:
             for template in templates:
                 with open(template, 'r') as template_file:
-                    tmp = template_file.read()
-                    if log:
-                        print(tmp)
-                    dest_file.write(tmp)
+                    dest_file.write(template_file.read())
 
     def get_rafters(self, filename):
         """Gets words from a file between rafters.
@@ -90,7 +87,6 @@ class Scripter:
         for key in config:
             if key != 'password' and key != 'ssh':
                 tmp.append(path + key)
-
         if 'password' in config:
             tmp.append('src/templates/common/password')
         if key == 'ssh':
@@ -133,7 +129,10 @@ class Scripter:
 
         """
         templates = self.get_templates(self.tpath, self.config)
-        self.create_file(self.dest, templates, log)
+        self.create_file(self.dest, templates)
         for template in templates:
             dict_config = self.create_dict(template, self.config, template.split('/')[-1])
             self.replace_all(self.dest, dict_config)
+        if log:
+            with open(self.dest, 'r') as output_file:
+               print(output_file.read())
