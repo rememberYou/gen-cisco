@@ -7,15 +7,16 @@ class Scripter:
     """Provides methods for Cisco script generation.
 
     Attributes:
-        config (dict): Switch configuration.
-        dest (str): Name of the file where to save the script.
+        config (dict): The device configuration.
+        dest (str): The name of the file where to save the script.
+        tpath (str): The path of the templates files for a device.
 
     """ 
 
-    def __init__(self, ini_file, dest, runtime_config):
+    def __init__(self, ini_file, dest, tpath):
         self.config = parse_config(ini_file)
         self.dest = dest
-        self.runtime_config = runtime_config
+        self.tpath = tpath
 
     def create_dict(self, template, config, section):
         """Create a dictionary where keys are words between rafters and
@@ -71,6 +72,28 @@ class Scripter:
         with open(filename,'r') as template_file:
             return re.findall('<.*?>', template_file.read())
 
+    def get_templates(self, path, config):
+        """Gets the templates that need to be used according dictionary
+        with the config.
+
+        Args:
+            path (str): The path of the templates files.
+            config (dict): The device configuration for a device.
+
+        Returns:
+            list: The list of templates to be used.
+
+        """
+        tmp = []
+        for key in config:
+            if key != 'password':
+                tmp.append(path + key)
+
+        if 'password' in config:
+            tmp.append('src/templates/common/password')
+        tmp.append('src/templates/common/saving')
+        return tmp
+
     def replace_all(self, filename, dict_config):
         """Replaces the words of a file found as key of a dictionary,
         by their corresponding value.
@@ -100,28 +123,8 @@ class Scripter:
         config file.
 
         """
-        templates = self.get_templates(self.config)
+        templates = self.get_templates(self.tpath, self.config)
         self.create_file(self.dest, templates, log)
         for template in templates:
             dict_config = self.create_dict(template, self.config, template.split('/')[-1])
             self.replace_all(self.dest, dict_config)
-
-    def get_templates(self, config):
-        """Gets the templates that need to be used according dictionary
-        with the config.
-
-        Args:
-            dict: The dictionary with the device config.
-
-        Returns:
-            list: The list of templates to be used.
-
-        """
-        tmp = []
-        for conf_key in set(self.runtime_config['possible_configs']).intersection(config):
-            tmp.append(self.runtime_config['templates_path'] + conf_key)
-        
-        if 'password' in config:
-            tmp.append('src/templates/common/password')
-        tmp.append('src/templates/common/saving')
-        return tmp
