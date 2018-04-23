@@ -17,8 +17,7 @@ from src.scripter import *
 @click.pass_context
 @click.version_option('1.0.0', '-v', '--version')
 def cli(ctx, src, dest, override, log):
-    """Generates Cisco scripts based on one of the INI files from the
-    examples folder.
+    """Generates Cisco scripts based on INI files
 
     \b
     Examples:

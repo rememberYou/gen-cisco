@@ -27,8 +27,7 @@ pip install gen-cisco
 ```
 Usage: gen-cisco.py [OPTIONS]
 
-  Generates a Cisco script based on one of the INI files from the examples
-  folder.
+  Generates Cisco scripts based on INI files
 
   Examples:
     python gen-cisco.py -i examples/router.ini

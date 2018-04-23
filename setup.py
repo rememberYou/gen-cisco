@@ -13,7 +13,7 @@ except(IOError, ImportError):
 setup(
     name="gen-cisco",
     version="1.0.0",
-    description="Generates Cisco scripts based on an INI file",
+    description="Generates Cisco scripts based on INI files",
     author="Terencio Agozzino",
     author_email="terencio.agozzino@gmail.com",
     license="MIT",
