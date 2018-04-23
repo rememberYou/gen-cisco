@@ -61,10 +61,11 @@ docker run -v $(pwd):/app gen-cisco python gen-cisco.py [OPTIONS]
 Here is a list of features configurable by the scripts:
 
 ```
- basic ➔ basic configuration for routers and switches
- eigrp ➔ advanced distance-vector routing protocol
- ospf  ➔ routing protocol for Internet Protocol networks
- ssh   ➔ cryptographic network protocol for operating network services securely over an unsecured network
+ basic               ➔ basic configuration for routers and switches
+ eigrp               ➔ advanced distance-vector routing protocol
+ etherchannel        ➔ port link aggregation technology or port-channel architecture used primarily on Cisco switches
+ ospf                ➔ routing protocol for Internet Protocol networks
+ ssh                 ➔ cryptographic network protocol for operating network services securely over an unsecured network
 ```
 
 For a complete list sorted by device, please visit the [wiki](https://github.com/rememberYou/gen-cisco/wiki/Supported-Features).
