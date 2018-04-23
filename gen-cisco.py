@@ -13,7 +13,7 @@ from src.scripter import *
 @click.option('--override', is_flag=True, help='Deletes the old file if it is overwritten.')
 @click.option('--log', '-l', is_flag=True, help='Outputs the final script to the console.')
 @click.pass_context
-@click.version_option('1.0.0', '-v', '--version')
+@click.version_option('1.0.1', '-v', '--version')
 def cli(ctx, src, dest, override, log):
     """Generates Cisco scripts based on INI files
 
