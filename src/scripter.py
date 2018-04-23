@@ -54,10 +54,10 @@ class Scripter:
         with open(filename, "w") as dest_file:
             for template in templates:
                 with open(template, 'r') as template_file:
-                    temp_value = template_file.read()
+                    tmp = template_file.read()
                     if log:
-                        print(temp_value)
-                    dest_file.write(temp_value)
+                        print(tmp)
+                    dest_file.write(tmp)
 
     def get_rafters(self, filename):
         """Gets words from a file between rafters.
