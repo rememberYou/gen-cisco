@@ -32,12 +32,14 @@ Usage: gen-cisco.py [OPTIONS]
   Examples:
     python gen-cisco.py -i examples/router.ini
     python gen-cisco.py -i examples/router.ini -o r1.txt
-    python gen-cisco.py -i examples/switch.ini -o sw1.txt --override
+    python gen-cisco.py -i examples/router.ini -o r1.txt -l
+    python gen-cisco.py -i examples/router.ini -o r1.txt --override
 
 Options:
   -i, --src FILENAME  The INI file.
   -o, --dest TEXT     The name of the generated script file.
   --override          Deletes the old file if it is overwritten.
+  -l, --log           Outputs the final script to the console.
   -v, --version       Show the version and exit.
   --help              Show this message and exit.
 ```
