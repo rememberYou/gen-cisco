@@ -89,7 +89,7 @@ class Scripter:
                 tmp.append(path + key)
         if 'password' in config:
             tmp.append('src/templates/common/password')
-        if key == 'ssh':
+        if 'ssh' in config:
             tmp.append('src/templates/common/ssh')
         tmp.append('src/templates/common/saving')
         return tmp
