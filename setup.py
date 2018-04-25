@@ -23,9 +23,6 @@ setup(
     long_description=long_description,
     scripts=['gen-cisco.py'],
     install_requires=['click'],
-    package_data={
-        'src': ['*.txt'],
-    },
     project_urls={
         'Source': 'https://github.com/rememberYou/gen-cisco',
         'Tracker': 'https://github.com/rememberYou/gen-cisco/issues',
