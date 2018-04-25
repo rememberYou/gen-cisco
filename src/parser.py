@@ -1,5 +1,4 @@
 import configparser
-import fileinput
 import os
 import sys
 
