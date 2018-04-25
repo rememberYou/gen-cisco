@@ -1,0 +1,2 @@
+! Specify number of authentication retries
+ip ssh authentication-retries <AUTH_RETRIES>

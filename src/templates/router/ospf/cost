@@ -1,0 +1,3 @@
+! Calculate OSPF interface cost according to bandwidth
+! Check out that every routers has the same reference bandwidth
+auto-cost reference-bandwidth <COST>

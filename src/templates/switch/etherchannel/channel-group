@@ -1,0 +1,5 @@
+! Etherchannel/port bundling configuration
+channel-group <CHANNEL_GROUP> mode <CHANNEL_MODE>
+!
+! Enable the selected interface
+no shutdown

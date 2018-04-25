@@ -1,0 +1,2 @@
+! Enable routing on an IP network
+network <IP> <WILD_CARD>

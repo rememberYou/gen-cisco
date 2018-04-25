@@ -38,9 +38,9 @@ def cli(ctx, src, dest, override, log):
             sys.exit(1)
 
         if 'router' in src.name:
-            Scripter(src.name, dest, "src/templates/router/").run(log)
+            Scripter(src.name, dest, 'router').run(log)
         elif 'switch' in src.name:
-            Scripter(src.name, dest, "src/templates/switch/").run(log)
+            Scripter(src.name, dest, 'switch').run(log)
         else:
             print("Error: Invalid INI file ({})".format(src.name))
             sys.exit(1)

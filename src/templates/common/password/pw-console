@@ -1,0 +1,8 @@
+! Configure a primary terminal line
+!
+line console 0
+password <PW_CONSOLE>
+exec-timeout 2 30
+login
+logging synchronous
+exit

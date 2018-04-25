@@ -1,0 +1,2 @@
+! Set switchport mode
+switchport mode <MODE>

@@ -1,8 +1,5 @@
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! SAVING !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!
 ! Copy from current system configuration to startup configuration
 copy running-config startup-config
 
-! Exit from configure mode
+! Exit from enable mode
 exit
-!

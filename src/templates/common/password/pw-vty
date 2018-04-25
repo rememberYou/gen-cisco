@@ -1,0 +1,8 @@
+! Configure virtual terminals
+!
+line vty 0 4
+password <PW_VTY>
+exec-timeout 2 30
+login
+logging synchronous
+exit

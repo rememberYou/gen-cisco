@@ -1,0 +1,3 @@
+! Reset OSPF process
+clear ip ospf process
+yes

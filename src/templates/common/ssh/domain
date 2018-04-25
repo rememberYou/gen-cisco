@@ -1,0 +1,2 @@
+! Define the default domain name
+ip domain-name <DOMAIN>

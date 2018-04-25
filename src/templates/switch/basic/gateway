@@ -1,0 +1,2 @@
+! Set the address to default gateway
+ip default-gateway <GATEWAY>

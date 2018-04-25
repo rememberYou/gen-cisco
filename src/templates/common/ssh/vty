@@ -1,0 +1,5 @@
+! Configure virtual terminals
+line vty 0 <VTY>
+transport input ssh
+login local
+exit

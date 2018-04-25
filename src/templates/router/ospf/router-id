@@ -1,0 +1,2 @@
+! router-id for this OSPF process
+router-id <ROUTER_ID>
