@@ -1,0 +1,9 @@
+! Enables EIGRP announcements on all interfaces belonging to the logical
+! network.
+network <NETWORK> <WILDCARD> area <AREA>
+!
+! Exit from configure mode
+exit
+!
+! Exit from enable mode
+exit

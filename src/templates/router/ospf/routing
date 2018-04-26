@@ -1,8 +1,0 @@
-! Enable routing on an IP network
-network <IP> <WILD_CARD> area <AREA>
-!
-! Exit from configure mode
-exit
-!
-! Exit from enable mode
-exit
