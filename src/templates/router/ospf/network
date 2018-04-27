@@ -1,4 +1,4 @@
-! Enables EIGRP announcements on all interfaces belonging to the logical
+! Enables OSPF announcements on all interfaces belonging to the logical
 ! network.
 network <NETWORK> <WILDCARD> area <AREA>
 !

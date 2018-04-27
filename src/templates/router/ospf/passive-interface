@@ -1,2 +1,2 @@
-! Suppress routing updates on an interface
+! Disables OSPF announcements on the designated interface.
 passive-interface <PASSIVE_INTERFACE>

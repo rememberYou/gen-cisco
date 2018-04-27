@@ -1,0 +1,2 @@
+! Enables OSPF announcements on the designated interface.
+no passive-interface <PASSIVE_INTERFACE>
