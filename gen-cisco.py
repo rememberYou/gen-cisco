@@ -11,17 +11,17 @@ from src.scripter import *
 @click.option('--src', '-i', type=click.File('r'), help='The INI file.')
 @click.option('--dest', '-o', type=str, help='The name of the generated script file.')
 @click.option('--override/--no-override', default=True, help='Deletes the old file if it is overwritten.')
-@click.option('--log', '-l', is_flag=True, help='Outputs the final script to the console.')
+@click.option('--verbose', '-v', is_flag=True, help='Outputs the final script to the console.')
 @click.pass_context
-@click.version_option('1.1.2', '-v', '--version')
-def cli(ctx, src, dest, override, log):
+@click.version_option('1.1.2', '--version')
+def cli(ctx, src, dest, override, verbose):
     """Generates Cisco scripts based on INI files
 
     \b
     Examples:
       python gen-cisco.py -i examples/router.ini
       python gen-cisco.py -i examples/router.ini -o r1.txt
-      python gen-cisco.py -i examples/router.ini -o r1.txt -l
+      python gen-cisco.py -i examples/router.ini -o r1.txt -v
       python gen-cisco.py -i examples/router.ini -o r1.txt --no-override
 
     """
@@ -38,9 +38,9 @@ def cli(ctx, src, dest, override, log):
             sys.exit(1)
 
         if 'router' in src.name:
-            Scripter(src.name, dest, 'router').run(log)
+            Scripter(src.name, dest, 'router').run(verbose)
         elif 'switch' in src.name:
-            Scripter(src.name, dest, 'switch').run(log)
+            Scripter(src.name, dest, 'switch').run(verbose)
         else:
             print("Error: Invalid INI file ({})".format(src.name))
             sys.exit(1)

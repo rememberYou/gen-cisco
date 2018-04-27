@@ -203,7 +203,7 @@ class Scripter:
             for line in dest_file:
                 print(line.replace(old, new), end='')
 
-    def run(self, log=False):
+    def run(self, verbose=False):
         """Generates the script for the device according to a config
         file.
 
@@ -216,7 +216,7 @@ class Scripter:
         self.create_file(self.dest, templates)
         dict_config = self.create_dict(templates, self.config)
         self.replace_all(self.dest, dict_config)
-        if log:
+        if verbose:
             with open(self.dest, 'r') as output_file:
                print(output_file.read())
 
