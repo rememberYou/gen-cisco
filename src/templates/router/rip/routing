@@ -1,0 +1,3 @@
+! Enables RIP protocol routing and/or switches to router configuration
+! mode.
+router rip

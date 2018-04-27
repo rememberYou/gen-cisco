@@ -1,0 +1,2 @@
+! Enables <REDISTRIBUTE> routes RIPv2 distribution.
+redistribute <REDISTRIBUTE>

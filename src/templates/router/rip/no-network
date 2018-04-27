@@ -1,0 +1,3 @@
+! Disables RIP announcements on all interfaces belonging to the logical
+! network (depending on the class mask).
+no network <NETWORK>
