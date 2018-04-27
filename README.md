@@ -65,6 +65,7 @@ Here is a list of features configurable by the scripts:
  eigrp               ➔ advanced distance-vector routing protocol
  etherchannel        ➔ port link aggregation technology or port-channel architecture used primarily on Cisco switches
  ospf                ➔ routing protocol for Internet Protocol networks
+ rip                 ➔ one of the oldest distance-vector routing protocols
  ssh                 ➔ cryptographic network protocol for operating network services securely over an unsecured network
 ```
 
