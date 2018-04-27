@@ -1,16 +1,13 @@
 import os
 import re
+import sys
 
 from fileinput import FileInput
 from src.parser import parse_config
 
-BOOL_KEYS = ['disable-dns', 'password-encryption', 'reset']
+BOOL_KEYS = ['auto-summary', 'debug', 'disable-dns', 'password-encryption',
+'reset', 'routing']
 COMMON = 'src/templates/common'
-SPECIAL_FILES = {'ssh': {'username': 'authentication', 'password': 'authentication'},
-                 'eigrp': {'ip': 'routing', 'wild-card': 'routing'},
-                 'etherchannel': {'channel-group': 'channel-group', 'channel-mode': 'channel-group'},
-                 'ospf': {'ip': 'routing', 'wild-card': 'routing'}
-}
 
 class Scripter:
     """Provides methods for Cisco script generation.
@@ -23,32 +20,40 @@ class Scripter:
     """
 
     def __init__(self, config, dest, device):
+        self.src = config
         self.config = parse_config(config)
         self.dest = dest
         self.device = device
 
-    def create_dict(self, template, config, section):
+    def create_dict(self, templates, config):
         """Create a dictionary where keys are words between rafters and
         its values are those present in the config file.
 
         Args:
-            template (str): The Cisco template.
+            templates (dict): The Cisco templates with their rafter words.
             config (dict): The device configuration.
-            section (str): The section name of an INI file.
 
         Returns:
             dict: The dictionary containing the keys to replace in the
             Cisco template by its values.
 
         """
-        rafters = self.get_rafters(template)
         dict_config = {}
-        for rafter in rafters:
-            if '_' in rafter:
-                value = rafter.replace('_', '-')
-            else:
-                value = rafter
-            dict_config[rafter] = config[section][value[1:-1].lower()]
+        for section in templates:
+            for rafter in templates[section].values():
+                if rafter is not None:
+                    if isinstance(rafter, list):
+                        for r in rafter:
+                            if '_' in r:
+                                tmp = r.replace('_', '-')
+                                dict_config[r] = config[section][tmp[1:-1].lower()]
+                            else:
+                                dict_config[r] = config[section][r[1:-1].lower()]
+                    elif '_' in rafter:
+                        tmp = rafter.replace('_', '-')
+                        dict_config[rafter] = config[section][tmp[1:-1].lower()]
+                    else:
+                        dict_config[rafter] = config[section][rafter[1:-1].lower()]
         return dict_config
 
     def create_header(self, title, delimitor='!', limit=71):
@@ -67,68 +72,63 @@ class Scripter:
         symbols = round((limit - len(title)) / 2)
         return delimitor * symbols + ' ' + title.upper() + ' ' + delimitor * symbols
 
-    def create_file(self, filename, templates):
+    def create_file(self, dest, templates):
         """Creates the file containing all the necessary Cisco
         templates.
 
         Args:
-            filename (str): The absolute path to the file to be created.
+            dest (str): The absolute path to the file to be created.
             templates (list): The list of Cisco templates.
 
         """
-        with open(filename, "w") as dest_file:
-            if len(templates) > 0:
-                dest_file.write(self.create_header(templates[0].split('/')[-2] + ' configuration') + '!\n' * 2)
+        if len(templates) > 0:
+            open(dest, 'w').close()
+        else:
+            print("Error: No sections in INI file ({})".format(self.src))
+            sys.exit(1)
 
-        self.write(filename, COMMON + '/enable')
-        self.write(filename, COMMON + '/configure_terminal')
+        for section in templates:
+            self.write_text(dest, self.create_header(section + ' configuration') + '!\n' * 2)
+            self.write(dest, COMMON + '/enable')
+            self.write(dest, COMMON + '/configure_terminal')
+            for path in templates[section]:
+                self.write(dest, path)
+            self.write(dest, COMMON + '/exit_conft')
+            self.write(dest, COMMON + '/exit_enable')
 
-        for i in range(len(templates)):
-            section = templates[i].split('/')[-2]
-            device_path = 'src/templates/' + self.device + '/' + section
-            special_file = False
+        self.write(dest, COMMON + '/saving')
 
-            if templates[i] == COMMON + '/ssh/username' and templates[i + 1] == COMMON + '/ssh/password':
-                special_file = True
-                self.write(filename, COMMON + '/ssh/authentication')
-
-            elif templates[i] == device_path + '/ip' and templates[i + 1] == device_path + '/wild-card':
-                special_file = True
-                self.write(filename, device_path + '/routing')
-
-            elif templates[i] == device_path + '/channel-group' and templates[i + 1] == device_path + '/channel-mode':
-                special_file = True
-                self.write(filename, device_path + '/channel-group')
-
-            if i >= 1 and templates[i - 1].split('/')[-2] != section:
-                self.write(filename, COMMON + '/exit_conft')
-                self.write(filename, COMMON + '/exit_enable')
-                self.write_text(filename, self.create_header(self.get_section(templates[i]) + ' configuration') + '!\n' * 2)
-                self.write(filename, COMMON + '/enable')
-                self.write(filename, COMMON + '/configure_terminal')
-                self.write(filename, templates[i])
-
-            elif not special_file and 'eigrp/wild-card' not in templates[i] \
-                 and 'ospf/wild-card' not in templates[i] \
-                 and 'ssh/password' not in templates[i] \
-                 and 'etherchannel/channel-mode' not in templates[i]:
-                self.write(filename, templates[i])
-
-        self.write(filename, COMMON + '/exit_conft')
-        self.write(filename, COMMON + '/exit_enable')
-        self.write(filename, COMMON + '/saving')
-
-    def get_key(self, path):
-        """Gets the key name according to a relative template paths.
+    def find_filename(self, path, rafter):
+        """Finds a filename according to a word between rafters.
 
         Args:
-            path: The relative template path
+            path (str): The path to start the search.
+            rafter (str): The word between rafters.
 
         Returns:
-            str: The key name.
+            str: The filename.
 
         """
-        return path.split('/')[-1]
+        for filename in os.listdir(path):
+            filename = path + '/' + filename
+            with open(filename, 'r') as template_file:
+                if rafter in template_file.read():
+                    return filename
+
+    def get_rafter(self, filename):
+        """Gets word between rafters from a file.
+
+        Args:
+            filename (str): The relative file path to read.
+
+        Returns:
+            str: The words from a file between rafters.
+
+        """
+        with open(filename,'r') as template_file:
+            rafter = re.findall('<.*?>', template_file.read())
+            if len(rafter) > 0:
+                return rafter[0]
 
     def get_rafters(self, filename):
         """Gets words from a file between rafters.
@@ -140,53 +140,41 @@ class Scripter:
             list: The list of words in the file between rafters.
 
         """
-        section = self.get_section(filename)
-        key =  self.get_key(filename)
-
-        if section in SPECIAL_FILES and key in SPECIAL_FILES[section]:
-            tmp = 'src/templates/common/' + section
-            if os.path.isdir(tmp):
-                filename = tmp + '/' +  SPECIAL_FILES[section][key]
-            else:
-                filename = 'src/templates/' + self.device + '/' +  section + '/' + SPECIAL_FILES[section][key]
-
         with open(filename,'r') as template_file:
             return re.findall('<.*?>', template_file.read())
 
-    def get_section(self, path):
-        """Gets the section name according to a relative template paths.
-
-        Args:
-            path: The relative template path
-
-        Returns:
-            str: The section name.
-
-        """
-        return path.split('/')[-2]
-
     def get_templates(self, device, config):
-        """Gets the relative template paths that need to be used
-        according dictionary with the config.
+        """Gets the relative template paths with their words between
+        rafters that need to be used, according dictionary with the
+        config.
 
         Args:
             device (str): The device name.
             config (dict): The device configuration.
 
         Returns:
-            list: The list of relative template paths to be used.
+            dict: The dict that contains the rafted words according to a
+            relative template paths to be used.
 
         """
-        templates = []
+        templates = {}
         for section in config:
+            other = {}
             path = 'src/templates/' + device + '/' + section
-            if os.path.isdir(COMMON + '/' + section):
+            if section in next(os.walk(COMMON))[1]:
                 path = COMMON + '/' + section
             for key in config[section]:
-                if key not in BOOL_KEYS and config[section][key] != '':
-                    templates.append(path + '/' + key)
-                elif key in BOOL_KEYS and config[section][key] == 'true':
-                    templates.append(path + '/' + key)
+                if (os.path.isfile(path + '/' + key)):
+                    if key not in BOOL_KEYS and config[section][key] != '':
+                        other[path + '/' + key] = self.get_rafter(path + '/' + key)
+                    elif key in BOOL_KEYS and config[section][key] == 'true':
+                        other[path + '/' + key] = self.get_rafter(path + '/' + key)
+                elif (path + '/' + key not in other):
+                    if '-' in key:
+                        key = key.replace('-', '_')
+                    filename = self.find_filename(path, self.word_to_rafter((path + '/' + key).split('/')[-1]))
+                    other[filename] = self.get_rafters(filename)
+            templates[section] = other
         return templates
 
     def replace_all(self, filename, dict_config):
@@ -226,13 +214,24 @@ class Scripter:
         """
         templates = self.get_templates(self.device, self.config)
         self.create_file(self.dest, templates)
-        for template in templates:
-            dict_config = self.create_dict(template, self.config,
-                                           self.get_section(template))
-            self.replace_all(self.dest, dict_config)
+        dict_config = self.create_dict(templates, self.config)
+        self.replace_all(self.dest, dict_config)
         if log:
             with open(self.dest, 'r') as output_file:
                print(output_file.read())
+
+    def word_to_rafter(self, word):
+        """Transforms a given word into an uppercase word between
+        rafter.
+
+        Args:
+            word (str): The word to transform.
+
+        Returns:
+            str: The uppercase word between rafter.
+
+        """
+        return '<{}>'.format(word.upper())
 
     def write(self, dest, src):
         """Writes the content of a file in a destination file.
