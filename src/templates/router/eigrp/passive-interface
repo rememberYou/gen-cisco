@@ -1,2 +1,2 @@
-! Suppress routing updates on an interface
+! Suppress routing updates on an interface.
 passive-interface <PASSIVE_INTERFACE>
