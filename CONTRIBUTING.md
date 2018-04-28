@@ -69,14 +69,14 @@ replaced **in the corresponding Cisco template**! Also, respect the syntax of an
 [INI](https://www.wikiwand.com/en/INI_file) file in particular by favouring
 hyphens over underscores.
 
-**NOTE:** think each time back to the default mode (_User EXEC Mode_) in order to
-easily integrate the other scripts.
+**NOTE:** if one of the keys has a Boolean value, it is necessary to enter the
+key name in the `BOOL_KEYS` from the `src/scripter.py`
+
+Until now, it is not possible to use duplicate keys, avoid all duplications of
+keys as much as possible.
 
 Finally, you will need to create the Cisco template if this has not already been
 done.
-
-**NOTE:** if one of the keys has a Boolean value, it is necessary to enter the
-key name in the `BOOL_KEYS` from the `src/scripter.py` file.
 
 It's as simple as that!
 
@@ -84,7 +84,7 @@ It's as simple as that!
 
 To add support for a new device (_e.g._: server), you only need to add one INI
 file (_e.g._: `examples/server.ini`) containing the addition of different
-network protocols supported for the device (SEE: [Adding new network device](##adding-new-network-protocol)).
+network protocols supported for the device.
 
-Finally, don't forget to create the `src/templates/device/` folder with
-Cisco templates linked to the device.
+Also, don't forget to create the `src/templates/device/` folder with Cisco
+templates linked to the device.
