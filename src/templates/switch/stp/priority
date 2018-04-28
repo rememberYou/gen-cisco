@@ -1,0 +1,5 @@
+! Change an interface's spanning tree port priority
+spanning-tree vlan <INT_VLAN> port-priority <PORT_PRIORITY>
+!
+! Exit from interface configuration mode
+exit

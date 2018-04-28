@@ -5,8 +5,8 @@ import sys
 from fileinput import FileInput
 from src.parser import parse_config
 
-BOOL_KEYS = ['auto-summary', 'debug', 'disable-dns', 'password-encryption',
-'reset', 'routing']
+BOOL_KEYS = ['auto-summary', 'bpduguard', 'debug', 'disable-dns',
+'password-encryption', 'portfast', 'reset', 'routing']
 COMMON = 'src/templates/common'
 
 class Scripter:

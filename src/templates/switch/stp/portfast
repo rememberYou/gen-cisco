@@ -1,0 +1,2 @@
+! Enable an interface to move directly to forwarding on link up
+spanning-tree portfast
