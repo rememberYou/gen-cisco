@@ -1,0 +1,2 @@
+! Exits from specific configuration mode
+exit

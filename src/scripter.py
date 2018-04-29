@@ -40,7 +40,12 @@ class Scripter:
         clean_lines = []
         with open(dest, "r") as f:
             lines = f.readlines()
-            clean_lines = [l.strip() for l in lines if l.strip()]
+            clean_lines = []
+            for l in lines:
+                if 'copy' not in l:
+                    clean_lines.append(l.strip())
+                else:
+                    clean_lines.append(l)
 
         with open(dest, "w") as f:
             f.writelines('\n'.join(clean_lines))
@@ -92,11 +97,15 @@ class Scripter:
                 if '_' in key:
                     key = key.replace('_', '-')
                 if key == 'reset':
+                    self.exit_specific(dest)
                     self.exit_conft(dest)
 
                 template = env.get_template(self.device + '/' + section + '/' + key + '.txt')
                 if len(template.render(self.config)) > 0:
-                    self.write_text(dest, template.render(self.config) + '!\n')
+                    if key != 'save':
+                        self.write_text(dest, template.render(self.config) + '!\n')
+                    else:
+                        self.write_text(dest, template.render(self.config) + '\n')
 
             if section != 'special':
                 if self.mode == 'conft':
@@ -148,6 +157,17 @@ class Scripter:
         """
         self.mode = 'user'
         self.write(dest, COMMON + '/exit_enable.txt')
+
+    def exit_specific(self, dest):
+        """Exits the specifc mode to the specified file and updates the current
+        mode.
+
+        Args:
+            dest: The destination filename to write.
+
+        """
+        self.mode = 'conft'
+        self.write(dest, COMMON + '/exit_spec.txt')
 
     def run(self, verbose=False):
         """Generates the script for the device according to a config
