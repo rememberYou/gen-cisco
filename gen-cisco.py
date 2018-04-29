@@ -4,7 +4,6 @@ import click
 import sys
 
 from pathlib import Path
-
 from src.scripter import *
 
 @click.command()
@@ -15,14 +14,14 @@ from src.scripter import *
 @click.pass_context
 @click.version_option('1.1.3', '--version')
 def cli(ctx, src, dest, override, verbose):
-    """Generates Cisco scripts based on INI files
+    """Generates Cisco scripts based on YAML files
 
     \b
     Examples:
-      python gen-cisco.py -i examples/router.ini
-      python gen-cisco.py -i examples/router.ini -o r1.txt
-      python gen-cisco.py -i examples/router.ini -o r1.txt -v
-      python gen-cisco.py -i examples/router.ini -o r1.txt --no-override
+      python gen-cisco.py -i examples/router.yml
+      python gen-cisco.py -i examples/router.yml -o r1.txt
+      python gen-cisco.py -i examples/router.yml -o r1.txt -v
+      python gen-cisco.py -i examples/router.yml -o r1.txt --no-override
 
     """
 
@@ -38,11 +37,11 @@ def cli(ctx, src, dest, override, verbose):
             sys.exit(1)
 
         if 'router' in src.name:
-            Scripter(src.name, dest, 'router').run(verbose)
+            Scripter('./examples/router.yml', dest, 'router').run(verbose)
         elif 'switch' in src.name:
-            Scripter(src.name, dest, 'switch').run(verbose)
+            Scripter('./examples/switch.yml', dest, 'switch').run(verbose)
         else:
-            print("Error: Invalid INI file ({})".format(src.name))
+            print("Error: Invalid YAML file ({})".format(src.name))
             sys.exit(1)
     else:
         click.echo(ctx.get_help())
