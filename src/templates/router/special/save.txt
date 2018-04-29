@@ -1,0 +1,4 @@
+{% if special.save %}
+  ! Copies from current system configuration to startup configuration
+  copy running-config startup-config
+{% endif %}

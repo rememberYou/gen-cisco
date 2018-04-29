@@ -1,0 +1,4 @@
+{% if stp.range %}
+  ! Enables an interface to move directly to forwarding on link up
+  interface range {{ stp.range }}
+{% endif %}

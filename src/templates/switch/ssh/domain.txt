@@ -1,0 +1,4 @@
+{% if ssh.domain %}
+  ! Defines the default domain name
+  ip domain-name {{ ssh.domain }}
+{% endif %}

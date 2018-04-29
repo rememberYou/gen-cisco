@@ -1,0 +1,4 @@
+{% if ospf.passive_interface %}
+  ! Disables OSPF announcements on the designated interface
+  passive-interface {{ ospf.passive_interface }}
+{% endif %}

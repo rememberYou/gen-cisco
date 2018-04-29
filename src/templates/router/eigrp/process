@@ -1,3 +1,0 @@
-! Enables EIGRP protocol routing for a specific autonomous system and/or
-! switches to router configuration mode
-router eigrp <PROCESS>

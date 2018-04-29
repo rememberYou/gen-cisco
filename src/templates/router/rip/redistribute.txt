@@ -1,0 +1,4 @@
+{% if rip.redistribute %}
+  ! Enables {{ rip.redistribute }} routes RIPv2 distribution
+  redistribute {{ rip.redistribute }}
+{% endif %}

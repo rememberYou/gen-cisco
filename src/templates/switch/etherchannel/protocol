@@ -1,2 +1,0 @@
-! Select the channel protocol (LACP, PAgP)
-channel-protocol <PROTOCOL>

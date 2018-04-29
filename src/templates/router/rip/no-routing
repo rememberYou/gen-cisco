@@ -1,2 +1,0 @@
-! Disables RIP protocol routing.
-no router rip

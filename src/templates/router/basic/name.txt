@@ -1,0 +1,4 @@
+{% if basic.name %}
+  ! Sets system's network name
+  hostname {{ basic.name }}
+{% endif %}

@@ -1,0 +1,4 @@
+{% if stp.mode %}
+  ! Sets STP mode
+  spanning-tree mode {{ stp.mode }}
+{% endif %}

@@ -1,0 +1,21 @@
+{% if stp.interfaces %}
+  ! Configures range of interfaces
+{% endif %}
+{% for interface in stp.interfaces %}
+  {% if interface.range %}
+    interface range {{ interface.range }}
+  {% endif %}
+  {% if interface.portfast %}
+    !
+    ! Enables interfaces to move directly to forwarding on link up
+    spanning-tree portfast
+  {% endif %}
+  {% if interface.bpduguard %}
+    !
+    ! Enables BPDU guard for this interface
+    spanning-tree bpduguard enable
+    {% if loop.index != loop.length %}
+      !
+    {% endif %}
+  {% endif %}
+{% endfor %}

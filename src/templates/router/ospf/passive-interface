@@ -1,2 +1,0 @@
-! Disables OSPF announcements on the designated interface.
-passive-interface <PASSIVE_INTERFACE>

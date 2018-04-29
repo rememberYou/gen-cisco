@@ -1,0 +1,7 @@
+{% if ospf.networks %}
+  ! Enables OSPF announcements on all interfaces belonging to the logical
+  ! network
+{% endif %}
+{% for networks in ospf.networks %}
+  network {{ networks.network }} area {{ networks.area }}
+{% endfor %}

@@ -1,2 +1,0 @@
-! Configure this switch as <ROOT> root for this spanning tree
-spanning-tree vlan <VLAN> root <ROOT>

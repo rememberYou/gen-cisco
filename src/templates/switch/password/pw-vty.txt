@@ -1,0 +1,9 @@
+{% if password.pw_vty %}
+  ! Configures virtual terminals
+  line vty 0 4
+  password {{ password.pw_vty }}
+  exec-timeout 2 30
+  login
+  logging synchronous
+  exit
+{% endif %}

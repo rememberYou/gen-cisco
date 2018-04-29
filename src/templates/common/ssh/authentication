@@ -1,2 +1,0 @@
-! Establish User Name Authentication
-username <USERNAME> privilege 15 secret <PASSWORD>

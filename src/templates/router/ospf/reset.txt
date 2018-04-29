@@ -1,0 +1,5 @@
+{% if ospf.reset %}
+  ! Resets OSPF process
+  clear ip ospf process
+  yes
+{% endif %}

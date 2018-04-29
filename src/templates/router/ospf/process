@@ -1,3 +1,0 @@
-! Enables OSPF protocol routing for a specific process and/or switches
-! to router configuration mode.
-router ospf <PROCESS>

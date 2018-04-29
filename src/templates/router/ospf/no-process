@@ -1,2 +1,0 @@
-! Disables OSPF protocol routing for a specific process.
-router ospf <PROCESS>

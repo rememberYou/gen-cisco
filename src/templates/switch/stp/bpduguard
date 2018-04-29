@@ -1,2 +1,0 @@
-! Enable BPDU guard for this interface
-spanning-tree bpduguard enable

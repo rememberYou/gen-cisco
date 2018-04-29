@@ -1,0 +1,4 @@
+{% if etherchannel.channel_group %}
+  ! Sets switchport mode
+  switchport mode {{ etherchannel.mode }}
+{% endif %}

@@ -1,2 +1,0 @@
-! Disables EIGRP protocol routing for a specific autonomous system
-no router eigrp <PROCESS>

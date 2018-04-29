@@ -1,2 +1,4 @@
-! Specify an interface
-interface <INTERFACE>
+{% if stp.interface %}
+  ! Specifies an interface
+  interface {{ stp.interface }}
+{% endif %}

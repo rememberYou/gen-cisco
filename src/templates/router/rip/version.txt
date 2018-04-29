@@ -1,0 +1,4 @@
+{% if rip.version %}
+  ! Specifies the supported RIP version
+  version {{ rip.version }}
+{% endif %}

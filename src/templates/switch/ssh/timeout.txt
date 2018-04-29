@@ -1,0 +1,4 @@
+{% if ssh.timeout %}
+  ! Specifies SSH time-out interval
+  ip ssh time-out {{ ssh.timeout }}
+{% endif %}

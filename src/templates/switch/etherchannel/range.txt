@@ -1,0 +1,4 @@
+{% if etherchannel.range %}
+  ! Sets interface range
+  interface range {{ etherchannel.range }}
+{% endif %}

@@ -1,0 +1,4 @@
+{% if eigrp.passive_interface %}
+  ! Disables EIGRP announcements on the designated interface
+  passive-interface {{ eigrp.passive_interface }}
+{% endif %}

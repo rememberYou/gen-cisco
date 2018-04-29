@@ -1,0 +1,4 @@
+{% if ospf.id %}
+  ! Specifies the ID for this OSPF process
+  router-id {{ ospf.id }}
+{% endif %}

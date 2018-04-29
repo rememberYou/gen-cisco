@@ -1,3 +1,0 @@
-! Enables EIGRP announcements on all interfaces belonging to the logical
-! network
-network <NETWORK> <WILDCARD>

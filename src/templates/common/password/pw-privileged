@@ -1,2 +1,0 @@
-! Assign the privileged level secret
-enable secret <PW_PRIVILEGED>

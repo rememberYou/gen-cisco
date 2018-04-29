@@ -1,3 +1,0 @@
-! Changes the RIP protocol timers (in seconds).
-! Format: UPDATE INVALID HOLD_DOWN FLUSH
-timers basic <UPDATE> <INVALID> <HOLD_DOWN> <FLUSH>

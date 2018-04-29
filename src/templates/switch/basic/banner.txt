@@ -1,0 +1,4 @@
+{% if basic.hostname %}
+  ! Sets Message of the Day banner
+  banner motd {{ banner }}
+{% endif %}

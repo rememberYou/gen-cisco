@@ -1,0 +1,17 @@
+{% if basic.interfaces %}
+  ! Configures interfaces
+{% endif %}
+{% for interface in basic.interfaces %}
+  interface {{ interface.interface }}
+  ip address {{ interface.ip }}
+  description {{ interface.description }}
+  {% if interface.active %}
+    no shutdown
+  {% endif %}
+  !
+  ! Exits from interface configuration mode
+  exit
+  {% if loop.index != loop.length %}
+    !
+  {% endif %}
+{% endfor %}

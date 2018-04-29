@@ -1,2 +1,0 @@
-! Specify SSH time-out interval
-ip ssh time-out <TIMEOUT>

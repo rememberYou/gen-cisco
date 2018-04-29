@@ -1,0 +1,9 @@
+{% if password.pw_console %}
+  ! Configures a primary terminal line
+  line console 0
+  password {{ password.pw_console }}
+  exec-timeout 2 30
+  login
+  logging synchronous
+  exit
+{% endif %}

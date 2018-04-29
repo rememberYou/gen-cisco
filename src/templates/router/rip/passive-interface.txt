@@ -1,0 +1,4 @@
+{% if rip.passive_interface %}
+  ! Disables RIP announcements on the designated interface
+  passive-interface {{ rip.passive_interface }}
+{% endif %}

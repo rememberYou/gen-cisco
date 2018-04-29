@@ -1,0 +1,5 @@
+{% if rip.timers.update and rip.timers.invalid and rip.timers.hold_down and rip.timers.flush %}
+  ! Changes the RIP protocol timers (in seconds)
+  ! Format: UPDATE INVALID HOLD_DOWN FLUSH
+  timers basic {{ rip.timers.updates }} {{ rip.timers.invalid }} {{ rip.timers.hold_down }} {{ rip.timers.flush }}
+{% endif %}

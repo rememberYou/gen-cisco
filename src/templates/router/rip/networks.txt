@@ -1,0 +1,7 @@
+{% if rip.networks %}
+  ! Enables RIP announcements on all interfaces belonging to the logical
+  ! network (depending on the class mask)
+{% endif %}
+{% for networks in rip.networks %}
+  network {{ networks.network }}
+{% endfor %}

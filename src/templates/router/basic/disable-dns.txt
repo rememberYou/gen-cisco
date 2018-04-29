@@ -1,0 +1,4 @@
+{% if basic.disable_dns %}
+  ! Disables IP Domain Name System hostname translation
+  no ip domain-lookup
+{% endif %}

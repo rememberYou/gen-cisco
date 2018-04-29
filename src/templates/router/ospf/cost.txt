@@ -1,0 +1,4 @@
+{% if ospf.cost %}
+  ! Specifies the default bandwith in Mbits/s
+  auto-cost reference-bandwidth {{ ospf.cost }}
+{% endif %}

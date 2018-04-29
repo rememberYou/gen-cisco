@@ -1,0 +1,7 @@
+{% if ssh.vty %}
+  ! Configures virtual terminals for SSH
+  line vty 0 ip ssh version {{ ssh.vty }}
+  transport input ssh
+  login local
+  exit
+{% endif %}

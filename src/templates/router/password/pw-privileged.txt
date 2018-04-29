@@ -1,0 +1,4 @@
+{% if password.pw_privileged %}
+  ! Assigns the privileged level secret
+  enable secret {{ password.pw_privileged }}
+{% endif %}

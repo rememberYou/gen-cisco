@@ -1,0 +1,2 @@
+! Enters to configuration mode
+configure terminal

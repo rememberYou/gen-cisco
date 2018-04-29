@@ -1,2 +1,0 @@
-! Enable an interface to move directly to forwarding on link up
-interface range <INT_RANGE>

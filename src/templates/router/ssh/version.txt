@@ -1,0 +1,4 @@
+{% if ssh.version %}
+  ! Specifies SSH version
+  ip ssh version {{ ssh.version }}
+{% endif %}

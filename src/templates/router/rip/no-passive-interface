@@ -1,2 +1,0 @@
-! Enables RIP announcements on the designated interface.
-no passive-interface <PASSIVE_INTERFACE>

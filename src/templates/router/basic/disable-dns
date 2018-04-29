@@ -1,2 +1,0 @@
-! Disable IP Domain Name System hostname translation
-no ip domain-lookup
