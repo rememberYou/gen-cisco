@@ -1,0 +1,77 @@
+#—–———————————————————————————————————————————————————
+#
+#   To learn more about how to configure gen-cisco
+#   go to https://github.com/rememberYou/gen-cisco
+#
+#   Check it out at the README for more information
+#
+#—–———————————————————————————————————————————————————
+
+basic:
+  name: R1
+  disable_dns: True
+  password_encryption: True
+  banner: The router is for authorized personnel only.
+  interfaces:
+    - interface: G0/0
+      ip: 172.16.20.1 255.255.255.128
+      description: Link to the Fa0/1 interface.
+      activate: True
+    - interface: S0/0/0
+      ip: 209.165.200.225 255.255.255.252
+      description: Link to the Fa0/2 interface.
+      activate: True
+
+ssh:
+  domain: cisco.com
+  account:
+    - username: cisco
+      password: cisco
+    - username: test
+      password: test
+  vty: 15
+  encryption: 2048
+  version: 2
+  timeout: 30
+  auth_retries: 3
+
+rip:
+  networks:
+    - network: 192.168.0.0
+    - network: 192.168.1.0
+  version: 1
+  auto_summary: False
+  redistribute: static
+  passive_interface: Gi0/0
+  timers:
+    updates: 30
+    invalid: 180
+    hold_down: 270
+    flush: 240
+
+eigrp:
+  process: 1
+  passive_interface: Gi0/0
+  networks:
+    - network: 192.168.0.0 0.0.0.255
+    - network: 192.168.1.0 0.0.0.255
+
+ospf:
+  process: 1
+  id: 1.1.1.1
+  cost: 100
+  passive_interface: Fa0/1
+  networks:
+    - network: 192.168.0.0 0.0.0.255
+      area: 0
+    - network: 192.168.1.0 0.0.0.255
+      area: 1
+  reset: True
+
+special:
+  save: True
+
+password:
+  pw_console: cisco
+  pw_privileged: cisco
+  pw_vty: cisco

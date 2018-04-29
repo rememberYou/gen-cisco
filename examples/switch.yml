@@ -1,0 +1,63 @@
+#—–———————————————————————————————————————————————————
+#
+#   To learn more about how to configure gen-cisco
+#   go to https://github.com/rememberYou/gen-cisco
+#
+#   Check it out at the README for more information
+#
+#—–———————————————————————————————————————————————————
+
+basic:
+  name: SW1
+  disable_dns: True
+  password_encryption: True
+  banner: The switch is for authorized personnel only.
+  gateway: 192.168.1.1
+
+ssh:
+  domain: cisco.com
+  account:
+    - username: cisco
+      password: cisco
+    - username: test
+      password: test
+  vty: 15
+  encryption: 2048
+  version: 2
+  timeout: 30
+  auth_retries: 3
+
+stp:
+  priorities:
+    - vlan: 1
+      root: primary
+    - vlan: 10
+      root: secondary
+  mode: rapid-pvst
+  interface_priorities:
+    - interface: Fa0/1
+      vlan: 1
+      priority: 128
+  interfaces:
+    - range: Fa0/1-Fa0/3
+      portfast: True
+      bpduguard: True
+    - range: Fa0/4-Fa0/6
+      portfast: True
+      bpduguard: False
+
+etherchannel:
+  range: Fa0/1-Fa0/2
+  mode: trunk
+  protocol: pagp
+  channel:
+    - group: 1
+      mode: auto
+
+special:
+  save: True
+
+password:
+  pw_console: cisco
+  pw_privileged: cisco
+  pw_vty: cisco
