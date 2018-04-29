@@ -35,7 +35,7 @@ stp:
       root: secondary
   mode: rapid-pvst
   interface_priorities:
-    - interface: Fa0/1
+    - interface: Gi0/1
       vlan: 1
       priority: 128
   interfaces:
