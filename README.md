@@ -1,7 +1,7 @@
 # ![Cisco Logo](assets/cisco.png "Cisco logo") gen-cisco
 
 `gen-cisco` is an API and CLI to facilitate the creation of your Cisco scripts
-using an INI file. This file groups a section for each protocol including the
+using a YAML file. This file groups a section for each protocol including the
 values to be replaced in the appropriate Cisco template.
 
 The creation of these templates has been done during the various _CCNA_ training
@@ -27,16 +27,16 @@ pip install gen-cisco
 ```
 Usage: gen-cisco.py [OPTIONS]
 
-  Generates Cisco scripts based on INI files
+  Generates Cisco scripts based on YAML files
 
   Examples:
-    python gen-cisco.py -i examples/router.ini
-    python gen-cisco.py -i examples/router.ini -o r1.txt
-    python gen-cisco.py -i examples/router.ini -o r1.txt -v
-    python gen-cisco.py -i examples/router.ini -o r1.txt --no-override
+    python gen-cisco.py -i examples/router.yml
+    python gen-cisco.py -i examples/router.yml -o r1.txt
+    python gen-cisco.py -i examples/router.yml -o r1.txt -v
+    python gen-cisco.py -i examples/router.yml -o r1.txt --no-override
 
 Options:
-  -i, --src FILENAME          The INI file.
+  -i, --src FILENAME          The YAML file.
   -o, --dest TEXT             The name of the generated script file.
   --override / --no-override  Deletes the old file if it is overwritten.
   -v, --verbose               Outputs the final script to the console.
