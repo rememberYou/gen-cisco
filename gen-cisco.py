@@ -7,7 +7,7 @@ from pathlib import Path
 from src.scripter import *
 
 @click.command()
-@click.option('--src', '-i', type=click.File('r'), help='The INI file.')
+@click.option('--src', '-i', type=click.File('r'), help='The YAML file.')
 @click.option('--dest', '-o', type=str, help='The name of the generated script file.')
 @click.option('--override/--no-override', default=True, help='Deletes the old file if it is overwritten.')
 @click.option('--verbose', '-v', is_flag=True, help='Outputs the final script to the console.')
