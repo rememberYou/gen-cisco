@@ -64,6 +64,7 @@ Here is a list of features configurable by the scripts:
  basic               ➔ basic configuration for routers and switches
  eigrp               ➔ advanced distance-vector routing protocol
  etherchannel        ➔ port link aggregation technology or port-channel architecture used primarily on Cisco switches
+ hsrp                ➔ Cisco redundancy protocol for establishing a fault-tolerant default gateway
  ospf                ➔ routing protocol for Internet Protocol networks
  rip                 ➔ one of the oldest distance-vector routing protocols
  stp                 ➔ network protocol that builds a loop-free logical topology for Ethernet networks

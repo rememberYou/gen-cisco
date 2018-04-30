@@ -1,0 +1,5 @@
+{% if hsrp.interface and hsrp.group and hsrp.timers.hello and hsrp.timers.hold %}
+  ! Sets the time period between the "hello" packets and the hold time
+  ! before assuming an active router is down.
+  standby {{ hsrp.group }} timers {{ hsrp.timers.hello }} {{ hsrp.timers.hold }}
+{% endif %}

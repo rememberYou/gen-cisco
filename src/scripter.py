@@ -100,12 +100,17 @@ class Scripter:
                     self.exit_specific(dest)
                     self.exit_conft(dest)
 
-                template = env.get_template(self.device + '/' + section + '/' + key + '.txt')
-                if len(template.render(self.config)) > 0:
+                if key != 'group':
+                    template = env.get_template(self.device + '/' + section + '/' + key + '.txt')
+
+                if len(template.render(self.config)) > 0 and key != 'group':
                     if key != 'save':
                         self.write_text(dest, template.render(self.config) + '!\n')
                     else:
                         self.write_text(dest, template.render(self.config) + '\n')
+
+            if section == 'hsrp':
+                self.exit_specific(dest)
 
             if section != 'special':
                 if self.mode == 'conft':

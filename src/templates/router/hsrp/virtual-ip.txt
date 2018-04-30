@@ -1,0 +1,4 @@
+{% if hsrp.interface and hsrp.group and hsrp.virtual_ip %}
+  ! Sets the virtual IP address for the interface
+  standby {{ hsrp.group }} ip {{ hsrp.virtual_ip }}
+{% endif %}

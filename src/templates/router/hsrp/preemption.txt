@@ -1,0 +1,6 @@
+{% if hsrp.interface and hsrp.group and hsrp.preemption %}
+  ! Makes the router from being a Standby Router to an Active Router
+  ! when it finds the Active Router is down or if it has become the
+  ! higher priority router in the group
+  standby {{ hsrp.group }} preempt
+{% endif %}

@@ -1,0 +1,4 @@
+{% if hsrp.interface %}
+  ! Configures HSRP interface
+  interface {{ hsrp.interface }}
+{% endif %}

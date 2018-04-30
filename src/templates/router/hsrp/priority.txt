@@ -1,0 +1,4 @@
+{% if hsrp.interface and hsrp.group and hsrp.priority %}
+  ! Sets router priority
+  standby {{ hsrp.group }} priority {{ hsrp.priority }}
+{% endif %}

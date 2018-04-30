@@ -1,0 +1,7 @@
+{% if hsrp.interface and hsrp.group and hsrp.track %}
+  ! Track interfaces so that when one is down, the active router will
+  ! mark its priority low so as to allow a Standby router to take over
+{% endif %}
+{% for interface in hsrp.track %}
+  standby {{ hsrp.group }} track {{ interface.interface }}
+{% endfor %}

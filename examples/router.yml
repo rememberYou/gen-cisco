@@ -68,6 +68,19 @@ ospf:
       area: 1
   reset: True
 
+hsrp:
+  interface: Gi0/0
+  group: 1
+  virtual_ip: 192.168.0.1
+  preemption: True
+  priority: 110
+  timers:
+    hello: 3
+    hold: 10
+  track:
+    - interface: Gi0/0
+    - interface: Gi0/1
+
 special:
   save: True
 
