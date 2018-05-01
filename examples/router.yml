@@ -21,6 +21,10 @@ basic:
       ip: 209.165.200.225 255.255.255.252
       description: Link to the Fa0/2 interface.
       activate: True
+  routes:
+    - route: 172.16.18.0 255.255.255.0 10.1.0.10
+    - route: 172.16.19.0 255.255.255.0 10.1.0.20
+    - route: 0.0.0.0 0.0.0.0 10.1.0.30
 
 ssh:
   domain: cisco.com

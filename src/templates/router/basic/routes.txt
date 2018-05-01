@@ -1,0 +1,6 @@
+{% if basic.routes %}
+  ! Configures routes
+  {% for route in basic.routes %}
+    ip route {{ route.route }}
+  {% endfor %}
+{% endif %}
