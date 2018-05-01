@@ -109,13 +109,14 @@ class Scripter:
                     else:
                         self.write_text(dest, template.render(self.config) + '\n')
 
+                if key == 'vlans':
+                    self.exit_specific(dest)
+
             if section == 'hsrp':
                 self.exit_specific(dest)
 
-            if section != 'special':
-                if self.mode == 'conft':
-                    self.exit_conft(dest)
-
+            if self.mode == 'conft':
+                self.exit_conft(dest)
             if self.mode == 'enable':
                 self.exit_enable(dest)
 

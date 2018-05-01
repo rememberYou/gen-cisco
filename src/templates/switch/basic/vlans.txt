@@ -1,0 +1,7 @@
+{% if basic.vlans %}
+  ! Configures VLANs
+  {% for vlan, name in basic.vlans.items() %}
+    vlan {{ vlan }}
+    name {{ name }}
+  {% endfor %}
+{% endif %}

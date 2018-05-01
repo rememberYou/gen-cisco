@@ -13,6 +13,10 @@ basic:
   password_encryption: True
   banner: The switch is for authorized personnel only.
   gateway: 192.168.1.1
+  vlans:
+    10: Users
+    20: Voice
+    30: Management
 
 ssh:
   domain: cisco.com
