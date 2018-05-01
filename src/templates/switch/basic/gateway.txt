@@ -1,4 +1,4 @@
 {% if basic.gateway %}
-  ! Set the address to default gateway
+  ! Sets the address to default gateway
   ip default-gateway {{ basic.gateway }}
 {% endif %}
