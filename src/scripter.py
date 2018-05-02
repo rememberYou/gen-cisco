@@ -79,7 +79,7 @@ class Scripter:
         if len(env.list_templates()) > 0:
             open(dest, 'w').close()
         else:
-            print("Error: No sections in YAML file ({})".format(self.src))
+            print("Error: No templates available.")
             sys.exit(1)
 
         for section in config:
