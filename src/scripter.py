@@ -24,6 +24,7 @@ class Scripter:
                 self.config = yaml.load(stream)
             except yaml.YAMLError as exc:
                 print(exc)
+        self.src = src
         self.path = 'templates/'
         self.dest = dest
         self.mode = 'user'
@@ -80,6 +81,10 @@ class Scripter:
             open(dest, 'w').close()
         else:
             print("Error: No templates available.")
+            sys.exit(1)
+
+        if config is None:
+            print("Error: No sections in YAML file ({})".format(self.src))
             sys.exit(1)
 
         for section in config:
