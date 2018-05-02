@@ -21,7 +21,7 @@ setup(
     packages=find_packages(),
     long_description=long_description,
     scripts=['gen-cisco.py'],
-    install_requires=['click'],
+    install_requires=['Jinja2', 'click', 'pyyaml'],
     project_urls={
         'Source': 'https://github.com/rememberYou/gen-cisco',
         'Tracker': 'https://github.com/rememberYou/gen-cisco/issues',
