@@ -1,0 +1,19 @@
+language: python
+python:
+  - "3.6"
+branches:
+  only:
+  - develop
+  - master
+cache:
+  directories:
+  - "$HOME/.cache/pip"
+  - "$HOME/.pyenv"
+install:
+  - pip install -r requirements.txt
+script:
+  - python setup.py install
+  - python gen-cisco.py -i ./examples/router.yml
+  - python gen-cisco.py -i ./examples/switch.yml
+notifications:
+  email: false
