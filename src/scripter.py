@@ -44,10 +44,7 @@ class Scripter:
             lines = f.readlines()
             clean_lines = []
             for l in lines:
-                if 'copy' not in l:
-                    clean_lines.append(l.strip())
-                else:
-                    clean_lines.append(l)
+                clean_lines.append(l.strip())
 
         with open(dest, "w") as f:
             f.writelines('\n'.join(clean_lines))
