@@ -18,13 +18,14 @@ class Scripter:
 
     """
 
-    def __init__(self, src, dest, device):
+    def __init__(self, src, dest, device, comments):
         with open(src, 'r') as stream:
             try:
                 self.config = yaml.load(stream)
             except yaml.YAMLError as exc:
                 print(exc)
         self.src = src
+        self.comments = comments
         self.path = 'templates/'
         self.dest = dest
         self.mode = 'user'
@@ -180,6 +181,23 @@ class Scripter:
         self.mode = 'conft'
         self.write(dest, COMMON + '/exit_spec.txt')
 
+    def remove_comments(self, dest):
+        """Removes the comments in a file, except headers.
+
+        Args:
+            dest: The destination filename to read.
+
+        """
+        with open(dest, 'r') as f:
+            no_comments = [line.strip() for line in f if line.count('!') == 0 or line.count('!') > 1]
+
+        for i in range(len(no_comments)):
+            if '!' in no_comments[i] and i > 0:
+                no_comments[i] = '\n' + no_comments[i]
+
+        with open(self.dest, 'w') as f:
+            [f.write(line + '\n') for line in no_comments]
+
     def run(self, verbose=False):
         """Generates the script for the device according to a config
         file.
@@ -195,6 +213,9 @@ class Scripter:
             lstrip_blocks=True
         )
         self.create_file(self.dest, self.config, env)
+
+        if not self.comments:
+            self.remove_comments(self.dest)
         self.clean_file(self.dest)
 
         if verbose:
