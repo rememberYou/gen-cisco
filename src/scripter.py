@@ -15,7 +15,7 @@ class Scripter:
         config (dict): The device configuration.
         dest (str): The name of the file where to save the script.
         device (str): The device name.
-
+        comments (bool): Includes the comments or not.
     """
 
     def __init__(self, src, dest, device, comments):
