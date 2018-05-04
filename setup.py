@@ -11,7 +11,7 @@ except(IOError, ImportError):
 
 setup(
     name="gen-cisco",
-    version="1.2.4",
+    version="1.2.5",
     description="Generates Cisco scripts based on YAML files",
     author="Terencio Agozzino",
     author_email="terencio.agozzino@gmail.com",

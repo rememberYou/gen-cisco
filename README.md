@@ -45,6 +45,7 @@ Options:
   -o, --dest TEXT             The name of the generated script file.
   --override / --no-override  Deletes the old file if it is overwritten.
   --comments / --no-comments  Deletes comments in the generated script.
+  --headers / --no-headers    Deletes headers in the generated script.
   -v, --verbose               Outputs the final script to the console.
   --version                   Show the version and exit.
   --help                      Show this message and exit.
