@@ -14,7 +14,7 @@ from src.scripter import *
 @click.option('--headers/--no-headers', default=True, help='Deletes headers in the generated script.')
 @click.option('--verbose', '-v', is_flag=True, help='Outputs the final script to the console.')
 @click.pass_context
-@click.version_option('1.2.3', '--version')
+@click.version_option('1.2.4', '--version')
 def cli(ctx, src, dest, override, comments, headers, verbose):
     """Generates Cisco scripts based on YAML files
 

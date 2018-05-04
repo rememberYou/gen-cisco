@@ -37,6 +37,7 @@ Usage: gen-cisco.py [OPTIONS]
     python gen-cisco.py -i examples/router.yml -o r1.txt
     python gen-cisco.py -i examples/router.yml -o r1.txt -v
     python gen-cisco.py -i examples/router.yml -o r1.txt --no-comments -v
+    python gen-cisco.py -i examples/router.yml -o r1.txt --no-comments --no-headers -v
     python gen-cisco.py -i examples/router.yml -o r1.txt --no-override
 
 Options:
