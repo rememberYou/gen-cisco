@@ -22,6 +22,7 @@ def cli(ctx, src, dest, override, comments, verbose):
       python gen-cisco.py -i examples/router.yml
       python gen-cisco.py -i examples/router.yml -o r1.txt
       python gen-cisco.py -i examples/router.yml -o r1.txt -v
+      python gen-cisco.py -i examples/router.yml -o r1.txt --no-comments -v
       python gen-cisco.py -i examples/router.yml -o r1.txt --no-override
 
     """
