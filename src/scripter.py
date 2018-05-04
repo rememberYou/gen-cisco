@@ -16,9 +16,10 @@ class Scripter:
         dest (str): The name of the file where to save the script.
         device (str): The device name.
         comments (bool): Includes the comments or not.
+        headers (bool): Includes the headers or not.
     """
 
-    def __init__(self, src, dest, device, comments):
+    def __init__(self, src, dest, device, comments, headers):
         with open(src, 'r') as stream:
             try:
                 self.config = yaml.load(stream)
@@ -26,6 +27,7 @@ class Scripter:
                 print(exc)
         self.src = src
         self.comments = comments
+        self.headers = headers
         self.path = 'templates/'
         self.dest = dest
         self.mode = 'user'
@@ -195,6 +197,19 @@ class Scripter:
         with open(self.dest, 'w') as f:
             [f.write(line + '\n') for line in no_comments]
 
+    def remove_headers(self, dest):
+        """Removes the headers in a file.
+
+        Args:
+            dest: The destination filename to read.
+
+        """
+        with open(dest, 'r') as f:
+            no_comments = [line.strip() for line in f if line.count('!') == 0 or line.count('!') == 1]
+
+        with open(self.dest, 'w') as f:
+            [f.write(line + '\n') for line in no_comments]
+
     def run(self, verbose=False):
         """Generates the script for the device according to a config
         file.
@@ -213,6 +228,8 @@ class Scripter:
 
         if not self.comments:
             self.remove_comments(self.dest)
+        if not self.headers:
+            self.remove_headers(self.dest)
         self.clean_file(self.dest)
 
         if verbose:
