@@ -26,12 +26,12 @@ class Scripter:
             except yaml.YAMLError as exc:
                 print(exc)
         self.src = src
+        self.dest = dest
+        self.device = device
         self.comments = comments
         self.headers = headers
         self.path = 'templates/'
-        self.dest = dest
         self.mode = 'user'
-        self.device = device
 
     def clean_file(self, dest):
         """Allows to delete the different indentations of lines present
