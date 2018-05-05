@@ -43,10 +43,7 @@ class Scripter:
         """
         clean_lines = []
         with open(dest, "r") as f:
-            lines = f.readlines()
-            clean_lines = []
-            for l in lines:
-                clean_lines.append(l.strip())
+           clean_lines = [line.strip() for line in f.readlines()]
 
         with open(dest, "w") as f:
             f.writelines('\n'.join(clean_lines))
