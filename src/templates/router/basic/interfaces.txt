@@ -5,7 +5,7 @@
   interface {{ interface.interface }}
   ip address {{ interface.ip }}
   description {{ interface.description }}
-  {% if interface.active %}
+  {% if interface.activate %}
     no shutdown
   {% endif %}
   !
