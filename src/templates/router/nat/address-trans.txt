@@ -1,0 +1,9 @@
+{% if nat.address_trans %}
+  ! Configures NAT
+{% endif %}
+{% for addr in nat.address_trans %}
+  ip nat {{ addr.output }} source static {{ addr.ip }}
+  {% if loop.index != loop.length %}
+    !
+  {% endif %}
+{% endfor %}

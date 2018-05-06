@@ -1,7 +1,7 @@
 # ![Cisco Logo](assets/cisco.png "Cisco logo") gen-cisco
 
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
-![Version](https://img.shields.io/badge/version-1.2.5-blue.svg)
+![Version](https://img.shields.io/badge/version-1.2.6-blue.svg)
 
 `gen-cisco` is an API and CLI to facilitate the creation of your Cisco scripts
 using a YAML file. This file groups a section for each protocol including the
@@ -72,6 +72,7 @@ Here is a list of features configurable by the scripts:
  eigrp               ➔ advanced distance-vector routing protocol
  etherchannel        ➔ port link aggregation technology or port-channel architecture used primarily on Cisco switches
  hsrp                ➔ Cisco redundancy protocol for establishing a fault-tolerant default gateway
+ nat                 ➔ method of remapping one IP address space into another
  ospf                ➔ routing protocol for Internet Protocol networks
  rip                 ➔ one of the oldest distance-vector routing protocols
  stp                 ➔ network protocol that builds a loop-free logical topology for Ethernet networks
