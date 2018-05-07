@@ -28,7 +28,6 @@ def cli(ctx, src, dest, override, comments, headers, verbose):
       python gen-cisco.py -i examples/router.yml -o r1.txt --no-override
 
     """
-
     if src:
         if not dest:
             if '/' in src.name:
