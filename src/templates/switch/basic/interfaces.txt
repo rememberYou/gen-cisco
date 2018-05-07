@@ -4,6 +4,9 @@
 {% for interface in basic.interfaces %}
   interface {{ interface.interface }}
   description {{ interface.description }}
+  {% if interface.duplex %}
+    duplex {{ interface.duplex }}
+  {% endif %}
   {% if interface.activate %}
     no shutdown
   {% endif %}

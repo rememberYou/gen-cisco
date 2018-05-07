@@ -16,9 +16,11 @@ basic:
   interfaces:
     - interface: F0/1
       description: Link to Fa0/1 interface.
+      # duplex: auto
       activate: True
     - interface: F0/2
       description: Link to Fa0/2 interface.
+      # duplex: half
       activate: True
   vlans:
     10: Users
