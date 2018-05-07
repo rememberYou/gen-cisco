@@ -13,6 +13,11 @@ basic:
   password_encryption: True
   banner: The switch is for authorized personnel only.
   gateway: 192.168.1.1
+  interfaces:
+    - interface: F0/1
+      description: Link to Fa0/1 interface.
+    - interface: F0/2
+      description: Link to Fa0/2 interface.
   vlans:
     10: Users
     20: Voice
