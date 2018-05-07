@@ -7,6 +7,9 @@
   {% if interface.duplex %}
     duplex {{ interface.duplex }}
   {% endif %}
+  {% if interface.speed %}
+    speed {{ interface.speed }}
+  {% endif %}
   {% if interface.activate %}
     no shutdown
   {% endif %}

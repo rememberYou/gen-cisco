@@ -8,6 +8,9 @@
   {% if interface.duplex %}
     duplex {{ interface.duplex }}
   {% endif %}
+  {% if interface.speed %}
+    speed {{ interface.speed }}
+  {% endif %}
   {% if interface.nat %}
     nat {{ interface.nat }}
   {% endif %}
