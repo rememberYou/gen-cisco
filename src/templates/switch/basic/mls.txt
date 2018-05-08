@@ -1,0 +1,4 @@
+{% if basic.mls %}
+  ! Sets mls
+  mls qos
+{% endif %}
