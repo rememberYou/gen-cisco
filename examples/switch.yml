@@ -28,6 +28,7 @@ basic:
     10: Users
     20: Voice
     30: Management
+  # cdp: True
 
 ssh:
   domain: cisco.com
