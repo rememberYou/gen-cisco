@@ -1,0 +1,3 @@
+{% if show.boot %}
+  show boot
+{% endif %}

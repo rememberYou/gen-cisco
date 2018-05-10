@@ -1,0 +1,3 @@
+{% if show.running_config %}
+  show running-config
+{% endif %}

@@ -1,0 +1,3 @@
+{% if show.access %}
+  show access-list
+{% endif %}

@@ -1,0 +1,3 @@
+{% if show.startup_config %}
+  show startup-config
+{% endif %}

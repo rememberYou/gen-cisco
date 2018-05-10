@@ -1,0 +1,3 @@
+{% if show.tech_support %}
+  show tech-support
+{% endif %}

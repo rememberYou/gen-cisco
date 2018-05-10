@@ -1,0 +1,3 @@
+{% if show.version %}
+  show version
+{% endif %}

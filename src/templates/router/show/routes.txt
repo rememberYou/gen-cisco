@@ -1,0 +1,3 @@
+{% if show.routes %}
+  show ip route
+{% endif %}

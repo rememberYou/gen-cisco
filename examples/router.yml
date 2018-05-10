@@ -102,6 +102,20 @@ nat:
 special:
   save: True
 
+show:
+  interfaces: True
+  controllers: Gi0/1
+  flash: True
+  version: True
+  startup_config: True
+  running_config: True
+  clock: True
+  hosts: True
+  arp: True
+  protocols: True
+  history: True
+  routes: True
+
 password:
   pw_console: cisco
   pw_privileged: cisco

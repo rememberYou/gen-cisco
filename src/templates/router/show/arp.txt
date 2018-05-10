@@ -1,0 +1,3 @@
+{% if show.arp %}
+  show arp
+{% endif %}

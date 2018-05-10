@@ -74,6 +74,26 @@ etherchannel:
 special:
   save: True
 
+show:
+  access: True
+  arp: True
+  boot: True
+  cdp: True
+  clock: True
+  dhcp: True
+  dtp: True
+  etherchannel: True
+  flash: True
+  history: True
+  hosts: True
+  keys: True
+  interfaces: True
+  privilege: True
+  running_config: True
+  startup_config: True
+  tech_support: True
+  version: True
+
 password:
   pw_console: cisco
   pw_privileged: cisco

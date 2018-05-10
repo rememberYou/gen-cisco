@@ -1,0 +1,3 @@
+{% if show.etherchannel %}
+  show etherchannel
+{% endif %}

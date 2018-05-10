@@ -88,7 +88,7 @@ class Scripter:
             self.write_text(dest, self.create_header(section + ' configuration') + '\n!\n')
             self.enter_enable(dest)
 
-            if section != 'special':
+            if section != 'special' and section != 'show':
                 self.enter_conft(dest)
 
             if section == 'rip':
