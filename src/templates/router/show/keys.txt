@@ -1,0 +1,3 @@
+{% if show.keys %}
+  show crypto key mypubkey rsa
+{% endif %}

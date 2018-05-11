@@ -1,0 +1,3 @@
+{% if show.snmp %}
+  show snmp
+{% endif %}

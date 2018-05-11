@@ -1,0 +1,8 @@
+{% if show.vtp %}
+  {% if show.vtp == 'status' %}
+    show vtp status
+  {% endif %}
+  {% if show.vtp == 'counters' %}
+    show vtp counters
+  {% endif %}
+{% endif %}

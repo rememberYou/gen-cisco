@@ -1,0 +1,3 @@
+{% if show.storm_control %}
+  show storm-control broadcast
+{% endif %}

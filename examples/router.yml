@@ -103,18 +103,38 @@ special:
   save: True
 
 show:
-  interfaces: True
-  controllers: Gi0/1
-  flash: True
-  version: True
-  startup_config: True
-  running_config: True
-  clock: True
-  hosts: True
   arp: True
-  protocols: True
+  cdp: True
+  clock: True
+  controllers: Gi0/1
+  dhcp: True
+  debugging: True
+  filesystem: True
+  flash: True
   history: True
+  hosts: True
+  interfaces: True
+  interface_stats: True
+  keys: True
+  line: True
+  logging: True
+  privilege: True
+  processes: True
+  protocols: True
+  queueing: True
   routes: True
+  running_config: True
+  sessions: True
+  ssh: True
+  snmp: True
+  startup_config: True
+  storm_control: True
+  tech_support: True
+  terminal: True
+  users: True
+  version: True
+  view: True
+  vtp: status
 
 password:
   pw_console: cisco

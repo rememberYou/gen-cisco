@@ -1,0 +1,3 @@
+{% if show.logging %}
+  show logging
+{% endif %}
