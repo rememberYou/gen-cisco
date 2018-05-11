@@ -86,8 +86,8 @@ show:
   flash: True
   history: True
   hosts: True
-  keys: True
   interfaces: True
+  keys: True
   privilege: True
   running_config: True
   startup_config: True
