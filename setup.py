@@ -16,7 +16,8 @@ setup(
     author="Terencio Agozzino",
     author_email="terencio.agozzino@gmail.com",
     license="MIT",
-    keywords = "cisco ccna generate netacad packettracer python script scripts",
+    keywords = "cisco ccna generate generator jinja netacad packettracer \
+    pythonscript scripts yaml",
     url="https://github.com/rememberYou/gen-cisco",
     packages=find_packages(),
     long_description=long_description,
