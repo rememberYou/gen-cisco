@@ -30,6 +30,9 @@ basic:
     30: Management
   # mls: True
   # cdp: True
+  # timezone:
+  #   name: CST
+  #   utc: -6
 
 ssh:
   domain: cisco.com

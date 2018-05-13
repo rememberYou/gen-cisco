@@ -1,0 +1,4 @@
+{% if basic.timezone and basic.timezone.name and basic.timezone.utc %}
+  ! Configure time-of-day clock
+  clock timezone {{ basic.timezone.name }} {{ basic.timezone.utc }}
+{% endif %}

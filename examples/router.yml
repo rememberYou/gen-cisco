@@ -32,6 +32,9 @@ basic:
     - route: 172.16.19.0 255.255.255.0 10.1.0.20
     - route: 0.0.0.0 0.0.0.0 10.1.0.30
   # cdp: True
+  # timezone:
+  #   name: CST
+  #   utc: -6
 
 ssh:
   domain: cisco.com
