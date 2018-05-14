@@ -1,0 +1,14 @@
+{% if basic.secure %}
+  {% if basic.secure.boot_config == True %}
+    ! Secure configuration archival commands
+    secure boot-config
+    {% if basic.secure.boot_image == True %}
+      !
+      ! Secure image
+      secure boot-image
+    {% endif %}
+  {% elif basic.secure.boot_image == True %}
+    ! Secure image
+    secure boot-image
+  {% endif %}
+{% endif %}

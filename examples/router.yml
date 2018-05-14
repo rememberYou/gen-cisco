@@ -35,6 +35,9 @@ basic:
   # timezone:
   #   name: CST
   #   utc: -6
+  # secure:
+  #   boot_config: True
+  #   boot_image: True
 
 ssh:
   domain: cisco.com
