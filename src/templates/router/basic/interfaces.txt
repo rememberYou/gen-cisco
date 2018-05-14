@@ -11,9 +11,6 @@
   {% if interface.speed %}
     speed {{ interface.speed }}
   {% endif %}
-  {% if interface.nat %}
-    nat {{ interface.nat }}
-  {% endif %}
   {% if interface.activate == True %}
     no shutdown
   {% endif %}

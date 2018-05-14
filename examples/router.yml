@@ -18,13 +18,11 @@ basic:
       description: Link to the Fa0/1 interface.
       # duplex: auto
       # speed: auto
-      # nat: inside
       activate: True
     - interface: S0/0/0
       ip: 209.165.200.225 255.255.255.252
       # duplex: auto
       # speed: auto
-      # nat: outside
       description: Link to the Fa0/2 interface.
       activate: True
   routes:
