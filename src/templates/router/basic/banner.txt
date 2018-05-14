@@ -1,4 +1,4 @@
 {% if basic.banner %}
-  ! Sets Message of the Day banner
+  ! Sets MOTD banner
   banner motd # {{ basic.banner }} #
 {% endif %}
