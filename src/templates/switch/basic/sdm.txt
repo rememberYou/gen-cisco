@@ -1,0 +1,9 @@
+{% if basic.sdm %}
+  {% if basic.sdm.bias == "default" %}
+    ! Sets TCAM and Forwarding RAM sizes
+    sdm prefer default
+  {% elif basic.sdm.bias == "qos" %}
+    ! Sets TCAM and Forwarding RAM sizes
+    sdm prefer qos
+  {% endif %}
+{% endif %}

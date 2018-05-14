@@ -33,6 +33,8 @@ basic:
   # timezone:
   #   name: CST
   #   utc: -6
+  # sdm:
+  #   bias: default
 
 ssh:
   domain: cisco.com
