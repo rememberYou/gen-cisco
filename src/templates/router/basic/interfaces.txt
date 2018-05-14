@@ -14,7 +14,7 @@
   {% if interface.nat %}
     nat {{ interface.nat }}
   {% endif %}
-  {% if interface.activate %}
+  {% if interface.activate == True %}
     no shutdown
   {% endif %}
   !

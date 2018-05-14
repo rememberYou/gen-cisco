@@ -1,3 +1,3 @@
-{% if show.sessions %}
+{% if show.sessions == True %}
   show sessions
 {% endif %}

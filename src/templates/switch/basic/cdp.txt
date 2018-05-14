@@ -1,4 +1,4 @@
-{% if basic.cdp %}
+{% if basic.cdp == True %}
   ! Sets global CDP configuration subcommands
   cdp run
 {% endif %}

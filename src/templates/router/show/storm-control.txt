@@ -1,3 +1,3 @@
-{% if show.storm_control %}
+{% if show.storm_control == True %}
   show storm-control broadcast
 {% endif %}

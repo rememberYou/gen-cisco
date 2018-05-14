@@ -1,3 +1,3 @@
-{% if show.protocols %}
+{% if show.protocols == True %}
   show protocols
 {% endif %}

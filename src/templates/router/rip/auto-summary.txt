@@ -1,4 +1,4 @@
-{% if rip.auto_summary %}
+{% if rip.auto_summary == True %}
   ! Enables automatic route summary
   auto-summary
 {% endif %}

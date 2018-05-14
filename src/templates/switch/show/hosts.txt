@@ -1,3 +1,3 @@
-{% if show.hosts %}
+{% if show.hosts == True %}
   show hosts
 {% endif %}

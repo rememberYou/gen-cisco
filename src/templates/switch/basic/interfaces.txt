@@ -10,7 +10,7 @@
   {% if interface.speed %}
     speed {{ interface.speed }}
   {% endif %}
-  {% if interface.activate %}
+  {% if interface.activate == True %}
     no shutdown
   {% endif %}
   !

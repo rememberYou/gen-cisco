@@ -1,3 +1,3 @@
-{% if show.dhcp %}
+{% if show.dhcp == True %}
   show dhcp
 {% endif %}

@@ -1,4 +1,4 @@
-{% if basic.disable_dns %}
+{% if basic.disable_dns == True %}
   ! Disables IP Domain Name System hostname translation
   no ip domain-lookup
 {% endif %}

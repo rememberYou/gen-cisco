@@ -1,4 +1,4 @@
-{% if ospf.reset %}
+{% if ospf.reset == True %}
   ! Resets OSPF process
   clear ip ospf process
   yes

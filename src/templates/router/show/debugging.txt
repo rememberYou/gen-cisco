@@ -1,3 +1,3 @@
-{% if show.debugging %}
+{% if show.debugging == True %}
   show debugging
 {% endif %}
