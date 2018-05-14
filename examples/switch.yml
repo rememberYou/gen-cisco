@@ -47,55 +47,55 @@ ssh:
   timeout: 30
   auth_retries: 3
 
-stp:
-  priorities:
-    - vlan: 1
-      root: primary
-    - vlan: 10
-      root: secondary
-  mode: rapid-pvst
-  interface_priorities:
-    - interface: Gi0/1
-      vlan: 1
-      priority: 128
-  interfaces:
-    - range: Fa0/1-Fa0/3
-      portfast: True
-      bpduguard: True
-    - range: Fa0/4-Fa0/6
-      portfast: True
-      bpduguard: False
+# stp:
+#   priorities:
+#     - vlan: 1
+#       root: primary
+#     - vlan: 10
+#       root: secondary
+#   mode: rapid-pvst
+#   interface_priorities:
+#     - interface: Gi0/1
+#       vlan: 1
+#       priority: 128
+#   interfaces:
+#     - range: Fa0/1-Fa0/3
+#       portfast: True
+#       bpduguard: True
+#     - range: Fa0/4-Fa0/6
+#       portfast: True
+#       bpduguard: False
 
-etherchannel:
-  range: Fa0/1-Fa0/2
-  mode: trunk
-  protocol: pagp
-  channel:
-    - group: 1
-      mode: auto
+# etherchannel:
+#   range: Fa0/1-Fa0/2
+#   mode: trunk
+#   protocol: pagp
+#   channel:
+#     - group: 1
+#       mode: auto
 
 special:
   save: True
 
-show:
-  access: True
-  arp: True
-  boot: True
-  cdp: True
-  clock: True
-  dhcp: True
-  dtp: True
-  etherchannel: True
-  flash: True
-  history: True
-  hosts: True
-  interfaces: True
-  keys: True
-  privilege: True
-  running_config: True
-  startup_config: True
-  tech_support: True
-  version: True
+# show:
+#   access: True
+#   arp: True
+#   boot: True
+#   cdp: True
+#   clock: True
+#   dhcp: True
+#   dtp: True
+#   etherchannel: True
+#   flash: True
+#   history: True
+#   hosts: True
+#   interfaces: True
+#   keys: True
+#   privilege: True
+#   running_config: True
+#   startup_config: True
+#   tech_support: True
+#   version: True
 
 password:
   pw_console: cisco

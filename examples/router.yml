@@ -52,96 +52,96 @@ ssh:
   timeout: 30
   auth_retries: 3
 
-rip:
-  networks:
-    - network: 192.168.0.0
-    - network: 192.168.1.0
-  version: 1
-  auto_summary: False
-  redistribute: static
-  passive_interface: Gi0/0
-  timers:
-    updates: 30
-    invalid: 180
-    hold_down: 270
-    flush: 240
+# rip:
+#   networks:
+#     - network: 192.168.0.0
+#     - network: 192.168.1.0
+#   version: 1
+#   auto_summary: False
+#   redistribute: static
+#   passive_interface: Gi0/0
+#   timers:
+#     updates: 30
+#     invalid: 180
+#     hold_down: 270
+#     flush: 240
 
-eigrp:
-  process: 1
-  passive_interface: Gi0/0
-  networks:
-    - network: 192.168.0.0 0.0.0.255
-    - network: 192.168.1.0 0.0.0.255
+# eigrp:
+#   process: 1
+#   passive_interface: Gi0/0
+#   networks:
+#     - network: 192.168.0.0 0.0.0.255
+#     - network: 192.168.1.0 0.0.0.255
 
-ospf:
-  process: 1
-  id: 1.1.1.1
-  cost: 100
-  passive_interface: Fa0/1
-  networks:
-    - network: 192.168.0.0 0.0.0.255
-      area: 0
-    - network: 192.168.1.0 0.0.0.255
-      area: 1
-  reset: True
+# ospf:
+#   process: 1
+#   id: 1.1.1.1
+#   cost: 100
+#   passive_interface: Fa0/1
+#   networks:
+#     - network: 192.168.0.0 0.0.0.255
+#       area: 0
+#     - network: 192.168.1.0 0.0.0.255
+#       area: 1
+#   reset: True
 
-hsrp:
-  interface: Gi0/0
-  group: 1
-  virtual_ip: 192.168.0.1
-  preemption: True
-  priority: 110
-  timers:
-    hello: 3
-    hold: 10
-  track:
-    - interface: Gi0/0
-    - interface: Gi0/1
+# hsrp:
+#   interface: Gi0/0
+#   group: 1
+#   virtual_ip: 192.168.0.1
+#   preemption: True
+#   priority: 110
+#   timers:
+#     hello: 3
+#     hold: 10
+#   track:
+#     - interface: Gi0/0
+#     - interface: Gi0/1
 
-nat:
-  address_trans:
-    - output: inside
-      ip: 172.16.20.1 255.255.255.128
-    - output: output
-      ip: 209.165.200.225 255.255.255.252
+# nat:
+#   address_trans:
+#     - output: inside
+#       ip: 172.16.20.1 255.255.255.128
+#     - output: output
+#       ip: 209.165.200.225 255.255.255.252
 
 special:
   save: True
 
-show:
-  arp: True
-  cdp: True
-  clock: True
-  controllers: Gi0/1
-  dhcp: True
-  debugging: True
-  filesystem: True
-  flash: True
-  history: True
-  hosts: True
-  interfaces: True
-  interface_stats: True
-  keys: True
-  line: True
-  logging: True
-  privilege: True
-  processes: True
-  protocols: True
-  queueing: True
-  routes: True
-  running_config: True
-  secure: True
-  sessions: True
-  ssh: True
-  snmp: True
-  startup_config: True
-  storm_control: True
-  tech_support: True
-  terminal: True
-  users: True
-  version: True
-  view: True
-  vtp: status
+# show:
+#   arp: True
+#   cdp: True
+#   clock: True
+#   controllers: Gi0/1
+#   dhcp: True
+#   debugging: True
+#   filesystem: True
+#   flash: True
+#   history: True
+#   hosts: True
+#   interfaces: True
+#   interface_stats: True
+#   keys: True
+#   line: True
+#   logging: True
+#   privilege: True
+#   processes: True
+#   protocols: True
+#   queueing: True
+#   routes: True
+#   running_config: True
+#   secure: True
+#   sessions: True
+#   ssh: True
+#   snmp: True
+#   startup_config: True
+#   storm_control: True
+#   tech_support: True
+#   terminal: True
+#   users: True
+#   version: True
+#   view: True
+#   vtp: status
 
 password:
   pw_console: cisco
