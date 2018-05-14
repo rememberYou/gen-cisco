@@ -127,6 +127,7 @@ show:
   queueing: True
   routes: True
   running_config: True
+  secure: True
   sessions: True
   ssh: True
   snmp: True
