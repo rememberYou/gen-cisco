@@ -1,0 +1,6 @@
+{% if special.dir %}
+  {% if special.dir == "flash" %}
+    ! Lists files on a filesystem
+    dir flash:
+  {% endif %}
+{% endif %}

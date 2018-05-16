@@ -104,6 +104,7 @@ ssh:
 #       ip: 209.165.200.225 255.255.255.252
 
 special:
+  dir: flash
   save: True
 
 # show:
