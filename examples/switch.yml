@@ -77,7 +77,7 @@ ssh:
 #       mode: auto
 
 special:
-  dir: flash
+  # dir: flash
   save: True
 
 # show:
