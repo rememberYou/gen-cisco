@@ -1,0 +1,4 @@
+{% if basic.vpdn == True %}
+  ! Sets virtual private dualup network
+  vpdn enable
+{% endif %}

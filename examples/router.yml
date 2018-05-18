@@ -36,6 +36,7 @@ basic:
   # secure:
   #   boot_config: True
   #   boot_image: True
+  # vpdn: True
 
 ssh:
   domain: cisco.com
