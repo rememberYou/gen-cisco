@@ -236,6 +236,7 @@ class Scripter:
 
     def write(self, dest, src):
         """Writes the content of a file in a destination file.
+
         Args:
             dest (str): The destination file.
             text (str): The text file.
@@ -247,6 +248,7 @@ class Scripter:
 
     def write_text(self, dest, text):
         """Writes text in a destination file.
+
         Args:
             dest (str): The destination file.
             text (str): The text file.
