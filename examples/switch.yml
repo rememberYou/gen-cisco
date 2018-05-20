@@ -35,6 +35,7 @@ basic:
   #   utc: -6
   # sdm:
   #   bias: default
+  # lldp: True
 
 ssh:
   domain: cisco.com

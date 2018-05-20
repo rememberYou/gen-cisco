@@ -1,0 +1,4 @@
+{% if basic.lldp == True %}
+  ! Sets global LLDP configuration subcommands
+  lldp run
+{% endif %}

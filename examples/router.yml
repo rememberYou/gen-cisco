@@ -36,6 +36,7 @@ basic:
   # secure:
   #   boot_config: True
   #   boot_image: True
+  # lldp: True
   # vpdn: True
 
 ssh:
