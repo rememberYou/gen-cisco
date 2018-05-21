@@ -1,7 +1,13 @@
 {% if basic.vlans %}
   ! Configures VLANs
-  {% for vlan, name in basic.vlans.items() %}
-    vlan {{ vlan }}
-    name {{ name }}
-  {% endfor %}
 {% endif %}
+{% for vlan in basic.vlans %}
+  vlan {{ vlan.id }}
+  name {{ vlan.name }}
+  {% if vlan.remote_span == True %}
+    remote-span
+  {% endif %}
+  {% if loop.index != loop.length %}
+    !
+  {% endif %}
+{% endfor %}

@@ -25,9 +25,13 @@ basic:
       # speed: auto
       activate: True
   vlans:
-    10: Users
-    20: Voice
-    30: Management
+    - id: 10
+      name: Users
+      remote_span: True
+    - id: 20
+      name: Voice
+    - id: 30
+      name: Management
   # mls: True
   # cdp: True
   # timezone:
