@@ -10,6 +10,14 @@
   {% if interface.speed %}
     speed {{ interface.speed }}
   {% endif %}
+  {% if interface.lldp %}
+    {% if interface.lldp.receive == True %}
+      lldp receive
+    {% endif %}
+    {% if interface.lldp.transmit == True %}
+      lldp transmit
+    {% endif %}
+  {% endif %}
   {% if interface.activate == True %}
     no shutdown
   {% endif %}

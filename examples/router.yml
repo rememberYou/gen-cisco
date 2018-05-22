@@ -18,6 +18,9 @@ basic:
       description: Link to the Fa0/1 interface.
       # duplex: auto
       # speed: auto
+      # lldp:
+      #   receive: True
+      #   transmit: True
       activate: True
     - interface: S0/0/0
       ip: 209.165.200.225 255.255.255.252

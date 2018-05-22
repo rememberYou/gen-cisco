@@ -18,6 +18,9 @@ basic:
       description: Link to Fa0/1 interface.
       # duplex: auto
       # speed: auto
+      # lldp:
+      #   receive: True
+      #   transmit: True
       activate: True
     - interface: F0/2
       description: Link to Fa0/2 interface.
