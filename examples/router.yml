@@ -18,6 +18,7 @@ basic:
       description: Link to the Fa0/1 interface.
       # duplex: auto
       # speed: auto
+      # pppoe: True
       # lldp:
       #   receive: True
       #   transmit: True

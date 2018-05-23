@@ -11,6 +11,9 @@
   {% if interface.speed %}
     speed {{ interface.speed }}
   {% endif %}
+  {% if interface.pppoe == True %}
+    pppoe enable
+  {% endif %}
   {% if interface.lldp %}
     {% if interface.lldp.receive == True %}
       lldp receive
