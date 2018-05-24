@@ -18,6 +18,7 @@ basic:
       description: Link to the Fa0/1 interface.
       # duplex: auto
       # speed: auto
+      # mac_address: 0000.0000.0001
       # pppoe: True
       # lldp:
       #   receive: True

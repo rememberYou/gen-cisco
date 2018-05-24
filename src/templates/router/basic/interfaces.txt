@@ -11,6 +11,9 @@
   {% if interface.speed %}
     speed {{ interface.speed }}
   {% endif %}
+  {% if interface.mac_address %}
+    mac-address {{ interface.mac_address }}
+  {% endif %}
   {% if interface.pppoe == True %}
     pppoe enable
   {% endif %}
