@@ -19,6 +19,7 @@ basic:
       # duplex: auto
       # speed: auto
       # mac_address: 0000.0000.0001
+      # delay: 10
       # pppoe: True
       # lldp:
       #   receive: True

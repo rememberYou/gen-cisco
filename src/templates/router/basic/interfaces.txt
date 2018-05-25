@@ -14,6 +14,9 @@
   {% if interface.mac_address %}
     mac-address {{ interface.mac_address }}
   {% endif %}
+  {% if interface.delay %}
+    delay {{ interface.delay }}
+  {% endif %}
   {% if interface.pppoe == True %}
     pppoe enable
   {% endif %}
