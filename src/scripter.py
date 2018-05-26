@@ -12,7 +12,7 @@ class Scripter:
     """Provides methods for Cisco script generation.
 
     Attributes:
-        config (dict): The device configuration.
+        src (str): The name of the YAML file.
         dest (str): The name of the file where to save the script.
         device (str): The device name.
         comments (bool): Includes the comments or not.
