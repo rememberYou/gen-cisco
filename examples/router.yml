@@ -24,6 +24,7 @@ basic:
       # lldp:
       #   receive: True
       #   transmit: True
+      # ring_limit: 3
       activate: True
     - interface: S0/0/0
       ip: 209.165.200.225 255.255.255.252

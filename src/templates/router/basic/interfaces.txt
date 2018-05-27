@@ -28,6 +28,9 @@
       lldp transmit
     {% endif %}
   {% endif %}
+  {% if interface.ring_limit %}
+    tx-ring-limit {{ interface.ring_limit }}
+  {% endif %}
   {% if interface.activate == True %}
     no shutdown
   {% endif %}

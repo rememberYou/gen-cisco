@@ -21,6 +21,7 @@ basic:
       # lldp:
       #   receive: True
       #   transmit: True
+      # ring_limit: 3
       activate: True
     - interface: F0/2
       description: Link to Fa0/2 interface.
