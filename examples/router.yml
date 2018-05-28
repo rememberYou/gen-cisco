@@ -16,6 +16,7 @@ basic:
     - interface: G0/0
       ip: 172.16.20.1 255.255.255.128
       description: Link to the Fa0/1 interface.
+      # arp_timeout: 10
       # duplex: auto
       # speed: auto
       # mac_address: 0000.0000.0001

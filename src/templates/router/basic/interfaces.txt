@@ -5,6 +5,9 @@
   interface {{ interface.interface }}
   ip address {{ interface.ip }}
   description {{ interface.description }}
+  {% if interface.arp_timeout %}
+    arp timeout {{ interface.arp_timeout }}
+  {% endif %}
   {% if interface.duplex %}
     duplex {{ interface.duplex }}
   {% endif %}
