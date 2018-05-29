@@ -7,6 +7,9 @@
   {% if interface.duplex %}
     duplex {{ interface.duplex }}
   {% endif %}
+  {% if interface.mdix %}
+    mdix {{ interface.mdix }}
+  {% endif %}
   {% if interface.speed %}
     speed {{ interface.speed }}
   {% endif %}

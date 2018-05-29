@@ -17,6 +17,7 @@ basic:
     - interface: F0/1
       description: Link to Fa0/1 interface.
       # duplex: auto
+      # mdix: auto
       # speed: auto
       # lldp:
       #   receive: True
