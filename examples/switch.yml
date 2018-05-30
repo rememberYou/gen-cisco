@@ -23,6 +23,7 @@ basic:
       #   receive: True
       #   transmit: True
       # ring_limit: 3
+      # bstorm_level: 1.0
       activate: True
     - interface: F0/2
       description: Link to Fa0/2 interface.

@@ -24,6 +24,9 @@
   {% if interface.ring_limit %}
     tx-ring-limit {{ interface.ring_limit }}
   {% endif %}
+  {% if interface.bstorm_level %}
+    storm-control broadcast level {{ interface.bstorm_level }}
+  {% endif %}
   {% if interface.activate == True %}
     no shutdown
   {% endif %}
