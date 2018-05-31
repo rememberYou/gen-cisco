@@ -87,6 +87,12 @@ ssh:
 #     - group: 1
 #       mode: auto
 
+# vtp:
+#   domain: CISCO
+#   mode: server
+#   password: cisco
+#   version: 2
+
 special:
   # dir: flash
   save: True

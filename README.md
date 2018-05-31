@@ -75,8 +75,9 @@ Here is a list of features configurable by the scripts:
  nat                 ➔ method of remapping one IP address space into another
  ospf                ➔ routing protocol for Internet Protocol networks
  rip                 ➔ one of the oldest distance-vector routing protocols
- stp                 ➔ network protocol that builds a loop-free logical topology for Ethernet networks
  ssh                 ➔ cryptographic network protocol for operating network services securely over an unsecured network
+ stp                 ➔ network protocol that builds a loop-free logical topology for Ethernet networks
+ vtp                 ➔ protocol that propagates the definition of VLAN on the whole local area network
 ```
 
 For a complete list sorted by device, please visit the [wiki](https://github.com/rememberYou/gen-cisco/wiki/Supported-Features).

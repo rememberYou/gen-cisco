@@ -1,0 +1,4 @@
+{% if vtp.mode %}
+  ! Configures VTP device mode
+  vtp mode {{ vtp.mode }}
+{% endif %}

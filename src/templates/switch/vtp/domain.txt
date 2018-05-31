@@ -1,0 +1,4 @@
+{% if vtp.domain %}
+  ! Sets the name of the domain
+  vtp domain {{ vtp.domain }}
+{% endif %}

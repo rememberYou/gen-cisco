@@ -1,0 +1,4 @@
+{% if vtp.version %}
+  ! Sets the VTP version
+  vtp version {{ vtp.version }}
+{% endif %}
