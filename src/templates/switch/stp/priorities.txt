@@ -1,8 +1,0 @@
-{% if stp.priorities %}
-  ! Configures VLANs priority of this switch for the spanning tree
-{% endif %}
-{% for vlans in stp.priorities %}
-  {% if vlans.vlan and vlans.root %}
-    spanning-tree vlan {{ vlans.vlan }} root {{ vlans.root }}
-  {% endif %}
-{% endfor %}

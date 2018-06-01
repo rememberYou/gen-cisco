@@ -1,4 +1,0 @@
-{% if stp.interface %}
-  ! Specifies an interface
-  interface {{ stp.interface }}
-{% endif %}

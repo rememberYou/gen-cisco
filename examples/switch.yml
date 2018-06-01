@@ -60,24 +60,29 @@ ssh:
   timeout: 30
   auth_retries: 3
 
-# stp:
-#   priorities:
-#     - vlan: 1
-#       root: primary
-#     - vlan: 10
-#       root: secondary
-#   mode: rapid-pvst
-#   interface_priorities:
-#     - interface: Gi0/1
-#       vlan: 1
-#       priority: 128
-#   interfaces:
-#     - range: Fa0/1-Fa0/3
-#       portfast: True
-#       bpduguard: True
-#     - range: Fa0/4-Fa0/6
-#       portfast: True
-#       bpduguard: False
+stp:
+  mode: rapid-pvst
+  portfast: True
+  vlans:
+    - vlan: 1
+      priority: primary
+    - vlan: 10
+      priority: 4096
+  interfaces:
+    - range: Fa0/1-Fa0/3
+      bpduguard: True
+      guard: True
+      link_type: p2p
+      portfast: True
+      vlans:
+        - vlan: 1
+          priority: 128
+        - vlan: 9-11
+          priority: 144
+    - range: Fa0/4-Fa0/6
+      bpduguard: False
+      link_type: shared
+      portfast: Trunk
 
 # etherchannel:
 #   range: Fa0/1-Fa0/2

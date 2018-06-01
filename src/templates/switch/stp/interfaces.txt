@@ -5,17 +5,51 @@
   {% if interface.range %}
     interface range {{ interface.range }}
   {% endif %}
-  {% if interface.portfast == True %}
+  {% if interface.guard == True %}
     !
-    ! Enables interfaces to move directly to forwarding on link up
-    spanning-tree portfast
+    ! Enables root guard
+    spanning-tree guard root
   {% endif %}
   {% if interface.bpduguard == True %}
     !
     ! Enables BPDU guard for this interface
     spanning-tree bpduguard enable
-    {% if loop.index != loop.length %}
-      !
-    {% endif %}
+  {% elif interface.bpduguard == False %}
+	!
+    ! Disables BPDU guard for this interface
+    spanning-tree bpduguard disable
+  {% endif %}
+  {% if interface.portfast == True %}
+    !
+    ! Enables portfast
+    spanning-tree portfast
+  {% elif interface.portfast == False %}
+	!
+    ! Disables portfast
+	spanning-tree portfast disable
+  {% elif interface.portfast == "Trunk" %}
+	!
+    ! Enables portfast even in trunk mode
+    spanning-tree portfast trunk
+  {% endif %}
+  {% if interface.link_type == "p2p" %}
+	!
+    ! Considers the interface as point-to-point
+    spanning-tree link-type point-to-point
+  {% elif interface.link_type == "shared" %}
+	!
+	! Considers the interface as shared
+    spanning-tree link-type shared
+  {% endif %}
+  {% if interface.vlans  %}
+	{% for vlan in interface.vlans %}
+	  {% if (vlan.priority | int) % 16 == 0  %}
+		!
+		spanning-tree vlan {{ vlan.vlan }} port-priority {{ vlan.priority }}
+	  {% endif %}
+	{% endfor %}
+  {% endif %}
+  {% if loop.index != loop.length %}
+    !
   {% endif %}
 {% endfor %}

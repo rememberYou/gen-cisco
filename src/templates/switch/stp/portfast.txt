@@ -1,0 +1,4 @@
+{% if stp.portfast == True %}
+  ! Enables portfast by default on all access ports
+  spanning-tree portfast default
+{% endif %}
