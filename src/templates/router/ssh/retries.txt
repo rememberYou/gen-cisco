@@ -1,4 +1,4 @@
 {% if ssh.domain %}
   ! Specifies number of authentication retries
-  ip ssh authentication-retries {{ ssh.auth_retries }}
+  ip ssh authentication-retries {{ ssh.retries }}
 {% endif %}

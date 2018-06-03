@@ -48,17 +48,19 @@ basic:
   # lldp: True
 
 ssh:
-  domain: cisco.com
-  account:
+  accounts:
     - username: cisco
       password: cisco
+      privilege: 15
     - username: test
       password: test
-  vty: 15
+      privilege: 4
+  domain: cisco.com
   encryption: 2048
-  version: 2
+  retries: 3
   timeout: 30
-  auth_retries: 3
+  version: 2
+  vty: 0 15
 
 stp:
   mode: rapid-pvst

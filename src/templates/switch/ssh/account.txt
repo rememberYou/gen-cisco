@@ -1,6 +1,0 @@
-{% if ssh.accounts %}
-  ! Creates accounts authentications
-{% endif %}
-{% for account in ssh.account %}
-  username {{ account.username }} privilege 15 secret {{ account.password }}
-{% endfor %}
