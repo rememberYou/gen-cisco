@@ -96,7 +96,7 @@ stp:
 #       mode: auto
 
 # vtp:
-#   domain: CISCO
+#   domain: cisco.com
 #   mode: server
 #   password: cisco
 #   version: 2
