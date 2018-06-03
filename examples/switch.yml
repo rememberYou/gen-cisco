@@ -55,7 +55,7 @@ ssh:
     - username: test
       password: test
       privilege: 4
-  action: remove
+  action: generate
   domain: cisco.com
   encryption: 2048
   retries: 3
