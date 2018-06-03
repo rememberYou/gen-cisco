@@ -103,10 +103,10 @@ class Scripter:
                     self.exit_specific(dest)
                     self.exit_conft(dest)
 
-                if key != 'group':
+                if key != 'group' and key != 'encryption':
                     template = env.get_template(self.device + '/' + section + '/' + key + '.txt')
 
-                if len(template.render(self.config)) > 0 and key != 'group':
+                if len(template.render(self.config)) > 0 and key != 'group' and key != 'encryption':
                     if key != 'save':
                         self.write_text(dest, template.render(self.config) + '!\n')
                     else:

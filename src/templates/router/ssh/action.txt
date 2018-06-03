@@ -1,0 +1,9 @@
+{% if ssh.action == "generate" and (ssh.encryption | int) <= 2048 %}
+  ! Generates a RSA key for SSH
+  crypto key generate rsa
+  {{ ssh.encryption }}
+{% elif ssh.action == "remove" %}
+  ! Removes keys
+  crypto key zeroize rsa
+  yes
+{% endif %}

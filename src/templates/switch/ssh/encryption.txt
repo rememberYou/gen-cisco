@@ -1,5 +1,0 @@
-{% if ssh.encryption %}
-  ! Generates a RSA key for SSH
-  crypto key generate rsa
-  {{ ssh.encryption }}
-{% endif %}
