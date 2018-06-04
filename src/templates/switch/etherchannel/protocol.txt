@@ -1,4 +1,0 @@
-{% if etherchannel.protocol %}
-  ! Selects the channel protocol
-  channel-protocol {{ etherchannel.protocol }}
-{% endif %}

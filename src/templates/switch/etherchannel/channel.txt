@@ -1,9 +1,0 @@
-{% if etherchannel.channel %}
-  ! Configures Etherchannel/port
-  {% for channel in etherchannel.channel %}
-    channel-group {{ channel.group }} mode {{ channel.mode }}
-  {% endfor %}
-  !
-  ! Enables the selected interface
-  no shutdown
-{% endif %}

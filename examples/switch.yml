@@ -88,12 +88,19 @@ stp:
       portfast: Trunk
 
 # etherchannel:
-#   range: Fa0/1-Fa0/2
-#   mode: trunk
-#   protocol: pagp
-#   channel:
-#     - group: 1
-#       mode: auto
+#   interfaces:
+#     - range: Fa0/1-Fa0/2
+#       activate: True
+#       cgroup: 1
+#       cmode: auto
+#       mode: trunk
+#       protocol: pagp
+#     - range: Fa0/3-Fa0/4
+#       activate: True
+#       cgroup: 2
+#       cmode: auto
+#       mode: trunk
+#       protocol: pagp
 
 # vtp:
 #   domain: cisco.com

@@ -1,0 +1,28 @@
+{% if etherchannel.interfaces %}
+  ! Sets interface range
+  {% for interfaces in etherchannel.interfaces %}
+	interface range {{ interfaces.range }}
+	{% if interfaces.cgroup and interfaces.cmode %}
+	  ! Configures Etherchannel/port
+      channel-group {{ interfaces.cgroup }} mode {{ interfaces.cmode }}
+	{% endif %}
+	{% if interfaces.mode == "" %}
+	  ! Sets switchport mode
+	  switchport mode {{ interfaces.mode }}
+	{% endif %}
+	{% if interfaces.protocol %}
+	  ! Selects the channel protocol
+	  channel-protocol {{ interfaces.protocol }}
+	{% endif %}
+	{% if interfaces.activate == True %}
+	  ! Enables the selected interface
+	  no shutdown
+	{% endif %}
+	!
+	! Exits from interface configuration mode
+	exit
+	{% if loop.index != loop.length %}
+      !
+	{% endif %}
+  {% endfor %}
+{% endif %}
