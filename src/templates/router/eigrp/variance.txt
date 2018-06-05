@@ -1,0 +1,4 @@
+{% if 1 <= (eigrp.variance | int) <= 128 %}
+  ! Sets load balancing variance
+  variance {{ eigrp.variance }}
+{% endif %}

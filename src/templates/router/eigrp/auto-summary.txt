@@ -1,0 +1,7 @@
+{% if eigrp.auto_summary == True %}
+  ! Enables automatic network number summarization
+  auto-summary
+{% elif eigrp.auto_summary == False %}
+  ! Disables automatic network number summarization
+  no auto-summary
+{% endif %}

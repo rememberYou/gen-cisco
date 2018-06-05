@@ -79,10 +79,12 @@ ssh:
 
 # eigrp:
 #   process: 1
+#   auto_summary: False
 #   passive_interface: Gi0/0
 #   networks:
 #     - network: 192.168.0.0 0.0.0.255
 #     - network: 192.168.1.0 0.0.0.255
+#   variance: 2
 
 # ospf:
 #   process: 1

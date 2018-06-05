@@ -1,7 +1,7 @@
 {% if eigrp.networks %}
   ! Enables EIGRP announcements on all interfaces belonging to the logical
   ! network
+  {% for networks in eigrp.networks %}
+	network {{ networks.network }}
+  {% endfor %}
 {% endif %}
-{% for networks in eigrp.networks %}
-  network {{ networks.network }}
-{% endfor %}
