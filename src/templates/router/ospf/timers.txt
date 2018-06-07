@@ -1,0 +1,8 @@
+{% if 1 <= (ospf.timers.dead | int) <= 65535 %}
+  ! Changes the timer which a neighbor is declared dead (in seconds)
+  ip ospf dead-interval {{ ospf.timers.dead }}
+{% endif %}
+{% if 1 <= (ospf.timers.hello | int) <= 65535 %}
+  ! Changes the timer between Hello packet (in seconds)
+  ip ospf hello-interval {{ ospf.timers.hello }}
+{% endif %}
