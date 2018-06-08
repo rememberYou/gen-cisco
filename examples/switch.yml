@@ -38,8 +38,8 @@ basic:
       name: Voice
     - id: 30
       name: Management
-  # mls: True
   # cdp: True
+  # mls: True
   # timezone:
   #   name: CST
   #   utc: -6
