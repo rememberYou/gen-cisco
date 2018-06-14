@@ -19,7 +19,6 @@ class Scripter:
         headers (bool): Includes the headers or not.
 
     """
-
     def __init__(self, src, dest, device, comments, headers):
         with open(src, 'r') as stream:
             try:
