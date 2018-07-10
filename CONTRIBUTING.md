@@ -1,7 +1,7 @@
 Contributing
 ===============================
 
-Nowaday, it has never been easier to contribute on a project. Inded, the
+Nowaday, it has never been easier to contribute on a project. Indeed, the
 contribution can be made mainly in two ways:
 
 1. Make any modification, in sending a pull request.
